@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marina Ermina — Sustainability & Efficiency</title>
+<meta name="description" content="Marina Ermina — websites, automation, sustainability research and data analysis at the meeting point of sustainability and efficiency. Reykjavík, Iceland.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marina Ermina — Sustainability & Efficiency">
+<meta property="og:description" content="Websites, automation, sustainability research and data analysis — at the meeting point of sustainability and efficiency. Reykjavík.">
+<meta property="og:image" content="https://mermina.github.io/og-image.png">
+<meta property="og:url" content="https://mermina.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marina Ermina — Sustainability & Efficiency">
+<meta name="twitter:description" content="Websites, automation, sustainability research and data analysis. Reykjavík.">
+<meta name="twitter:image" content="https://mermina.github.io/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#0d251a; --green:#2f7d5b; --green-mid:#7fc9a6;
+    --cream:#f6f4ee; --stone:#eceae2; --ink:#17201b; --muted:#5b6b62; --line:#dfe4de;
+    --nav-h:60px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ── NAV ── */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease}
+  .nav-in{max-width:1080px;margin:0 auto;height:var(--nav-h);padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .brand{font-family:'DM Serif Display',serif;font-size:1.18rem;letter-spacing:.01em;text-decoration:none;color:#fff;transition:color .3s;white-space:nowrap}
+  .brand .mk{color:var(--green-mid)}
+  .nav.solid{background:rgba(246,244,238,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav.solid .brand{color:var(--ink)}
+  .nav-right{display:flex;align-items:center;gap:24px}
+  .nav-links{display:flex;gap:24px;font-size:14px;font-weight:500}
+  .nav-links a{color:rgba(255,255,255,.82);text-decoration:none;transition:color .18s}
+  .nav-links a:hover{color:#fff}
+  .nav.solid .nav-links a{color:var(--muted)}
+  .nav.solid .nav-links a:hover{color:var(--forest)}
+  .lang{display:inline-flex;gap:2px;border:1px solid rgba(255,255,255,.32);border-radius:99px;padding:3px;transition:border-color .3s}
+  .nav.solid .lang{border-color:var(--line)}
+  .lang button{font:inherit;font-weight:600;font-size:12px;color:rgba(255,255,255,.72);background:none;border:none;cursor:pointer;padding:3px 11px;border-radius:99px;transition:.15s}
+  .nav.solid .lang button{color:var(--muted)}
+  .lang button.on{background:var(--green-mid);color:var(--forest)}
+  .nav.solid .lang button.on{background:var(--green);color:#fff}
+
+  /* hero */
+  .hero{position:relative;min-height:0;padding:calc(var(--nav-h) + 30px) 0 46px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#164031 0%,var(--forest) 55%,#091b13 100%);color:#fff}
+  #bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero-inner{position:relative;z-index:2;padding:24px;max-width:620px;animation:rise 1s ease both}
+  .avail{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.9);background:rgba(127,201,166,.13);border:1px solid rgba(127,201,166,.32);border-radius:99px;padding:6px 15px;margin-bottom:24px}
+  .avail .dot{width:8px;height:8px;border-radius:50%;background:var(--green-mid);box-shadow:0 0 0 0 rgba(127,201,166,.6);animation:pulse 2.3s infinite}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green-mid);margin-bottom:20px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.02em}
+  .hero h1 em{color:var(--green-mid)}
+  .hero p{margin:22px auto 0;max-width:500px;color:rgba(255,255,255,.72);font-size:clamp(1rem,1.6vw,1.15rem);font-weight:300}
+  .hero-btns{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:500;font-size:15px;padding:12px 26px;border-radius:99px;transition:.18s}
+  .btn-solid{background:var(--green-mid);color:#0d251a}
+  .btn-solid:hover{background:#a5ddc2;transform:translateY(-2px)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+  .btn-ghost:hover{border-color:#fff;transform:translateY(-2px)}
+  .cv-link{margin-top:20px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.62);text-decoration:none;transition:.15s}
+  .cv-link:hover{color:#fff}
+  .cv-link svg{width:14px;height:14px}
+  .scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);animation:bob 2.4s ease-in-out infinite}
+
+  section{padding:96px 0;scroll-margin-top:var(--nav-h)}
+  .label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+  h2{font-size:clamp(2rem,4.2vw,3rem);line-height:1.12;letter-spacing:-.015em}
+
+  /* ── TRUST STRIP ── */
+  .trust{background:var(--forest);color:#fff;padding:0}
+  .trust-in{max-width:1000px;margin:0 auto;padding:32px 24px 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:26px 44px}
+  .trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;flex:1 1 200px;max-width:280px}
+  .trust-k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);font-weight:600}
+  .trust-v{font-family:'DM Serif Display',serif;font-size:1.1rem;line-height:1.3;color:#fff}
+  .trust-brands{max-width:1000px;margin:0 auto;padding:16px 24px 30px;border-top:1px solid rgba(255,255,255,.1);text-align:center;display:flex;flex-direction:column;gap:9px;align-items:center}
+  .tb-label{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+  .tb-names{font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.75;max-width:780px}
+
+  /* services */
+  .help{background:var(--cream);border-top:1px solid var(--line)}
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+  .svc-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+  .svc-ic{width:36px;height:36px;border-radius:10px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+  .svc-card h3{font-size:1.05rem;margin-bottom:6px}
+  .svc-card p{color:var(--muted);font-size:.88rem;line-height:1.55}
+
+  /* examples */
+  .examples{background:#fff;border-top:1px solid var(--line)}
+  .ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+  .ex-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--cream);display:flex;flex-direction:column;transition:.2s}
+  .ex-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(13,37,26,.1)}
+
+  /* browser frame */
+  .frame{position:relative;background:#fff;border-bottom:1px solid var(--line)}
+  .frame-bar{display:flex;align-items:center;gap:10px;padding:9px 13px;background:#e7ebe6;border-bottom:1px solid var(--line)}
+  .dots{display:flex;gap:6px;flex:0 0 auto}
+  .dots i{width:10px;height:10px;border-radius:50%;display:block}
+  .dots i:nth-child(1){background:#ef9a91}.dots i:nth-child(2){background:#f1c979}.dots i:nth-child(3){background:#93cfa2}
+  .frame-url{flex:1;min-width:0;background:#fff;border-radius:6px;font-size:11px;color:var(--muted);padding:4px 12px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .frame-shot{aspect-ratio:16/10;overflow:hidden;background:var(--cream)}
+  .frame-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+  .frame-shot.diagram{display:flex;align-items:center;justify-content:center;padding:22px;background:linear-gradient(180deg,#f2f0e9,#eae7de);aspect-ratio:5/2}
+  .frame-shot.diagram img{width:100%;height:auto;max-height:100%;object-fit:contain}
+  .ex-card:hover .frame-shot img{transform:scale(1.04)}
+  .live-badge{position:absolute;top:11px;right:11px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(13,37,26,.72);backdrop-filter:blur(4px);border-radius:99px;padding:4px 11px;display:inline-flex;align-items:center;gap:7px}
+  .live-badge .d{width:6px;height:6px;border-radius:50%;background:var(--green-mid);animation:pulse2 2s infinite}
+
+  .ex-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+  .ex-tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+  .ex-body h3{font-size:1.4rem;margin:8px 0 6px}
+  .ex-result{font-weight:600;font-size:1.06rem;line-height:1.32;color:var(--forest);margin:2px 0 10px}
+  .ex-body p{color:var(--muted);font-size:.97rem;flex:1}
+  .ex-link{margin-top:16px;font-weight:600;font-size:14px;color:var(--green);text-decoration:none;align-self:flex-start}
+  .ex-link:hover{color:var(--forest)}
+  .bg-note{margin-top:40px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:820px;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;padding:20px 24px}
+  .bg-note strong{color:var(--ink)}
+  .bg-note .bg-note-label{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+
+  /* ── TESTIMONIAL (ready to use — see note below) ──
+     When you have a real client quote, delete the surrounding comment
+     markers to make this <section> visible. Fill in q_quote / q_name /
+     q_role in BOTH languages in the I18N block near the bottom. -->
+  <section class="quote" id="quote">
+    <div class="wrap" style="max-width:760px;text-align:center">
+      <div class="label" style="color:var(--green-mid)" data-i18n="q_label">In their words</div>
+      <blockquote class="serif" data-i18n="q_quote" style="font-size:clamp(1.5rem,3vw,2rem);line-height:1.3;color:#fff;letter-spacing:-.01em">&ldquo;Your client's words go here.&rdquo;</blockquote>
+      <div style="margin-top:20px;font-size:14px;color:rgba(255,255,255,.7)"><strong style="color:#fff" data-i18n="q_name">Client name</strong> · <span data-i18n="q_role">Role, Company</span></div>
+    </div>
+  </section>
+  -- end testimonial ── */
+  .quote{background:radial-gradient(120% 120% at 50% 0%,#164031,var(--forest) 70%);color:#fff;text-align:center}
+
+  /* about */
+  .about{background:var(--cream);border-top:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;margin-top:8px}
+  .photo{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 20px 50px rgba(13,37,26,.14)}
+  .about-text p{color:var(--muted);margin-top:16px;font-size:1.06rem}
+  .about-text p:first-child{margin-top:0}
+  .about-text strong{color:var(--ink);font-weight:600}
+  .langs{margin-top:22px;font-size:13px;color:var(--muted)}
+  .langs span{color:var(--green);font-weight:600}
+
+  /* contact */
+  .contact{background:radial-gradient(120% 120% at 50% 0%,#164031,var(--forest) 70%);color:#fff;text-align:center}
+  .contact h2{color:#fff}
+  .contact p{color:rgba(255,255,255,.7);max-width:520px;margin:18px auto 30px;font-weight:300}
+  .contact-mail{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.4vw,2rem);color:var(--green-mid);text-decoration:none;border-bottom:1px solid rgba(127,201,166,.4);padding-bottom:3px}
+  .contact-mail:hover{color:#fff;border-color:#fff}
+  .contact-links{margin-top:26px;display:flex;gap:22px;justify-content:center;align-items:center;font-size:14px;flex-wrap:wrap}
+  .contact-links a{color:rgba(255,255,255,.55);text-decoration:none;transition:.15s}
+  .contact-links a:hover{color:#fff}
+  .contact-cv{color:rgba(255,255,255,.55);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .contact-cv:hover{color:#fff}
+  .contact-cv svg{width:13px;height:13px}
+
+  footer{background:#091b13;color:rgba(255,255,255,.35);text-align:center;font-size:12.5px;padding:26px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,201,166,.55)}70%{box-shadow:0 0 0 8px rgba(127,201,166,0)}100%{box-shadow:0 0 0 0 rgba(127,201,166,0)}}
+  @keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(127,201,166,.55)}70%{box-shadow:0 0 0 6px rgba(127,201,166,0)}100%{box-shadow:0 0 0 0 rgba(127,201,166,0)}}
+
+  @media(max-width:760px){
+    section{padding:70px 0}
+    .nav-links{display:none}
+    .hero{min-height:92svh}
+    .ex-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:30px;justify-items:center;text-align:center}
+    .photo{max-width:230px}
+    .trust-in{gap:18px 30px}
+  }
+  @media(max-width:900px){.svc{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.svc{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){#bg{display:none}.hero-inner,.scroll,.avail .dot,.live-badge .d{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#" class="brand">Marina <span class="mk">Ermina</span></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#examples" data-i18n="nav_work">Work</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div id="lang" class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="is">IS</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <canvas id="bg"></canvas>
+  <div class="hero-inner">
+    <div class="avail"><span class="dot"></span><span data-i18n="avail">Available for freelance · open to the right role</span></div>
+    <div class="eyebrow" data-i18n="eyebrow">Reykjavík · Iceland</div>
+    <h1 class="serif" data-i18n-html="h1">Where sustainability<br>meets <em>efficiency</em>.</h1>
+    <p data-i18n="herosub">I build practical tools — websites, automation and research — that help save resources and put them to better use, for nature and for people.</p>
+    <div class="hero-btns">
+      <a href="#examples" class="btn btn-solid" data-i18n="cta1">See my work</a>
+      <a href="#contact" class="btn btn-ghost" data-i18n="cta2">Get in touch</a>
+    </div>
+    <a href="cv-marina-ermina.pdf" download class="cv-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span data-i18n="cv">Download CV (PDF)</span>
+    </a>
+  </div>
+  <div class="scroll" data-i18n="scroll">scroll</div>
+</header>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-in">
+    <div class="trust-item"><div class="trust-k" data-i18n="tk_edu">Education</div><div class="trust-v" data-i18n="tv_edu">MS · Environment &amp; Natural Studies — Háskóli Íslands</div></div>
+    <div class="trust-item"><div class="trust-k" data-i18n="tk_data">Technical</div><div class="trust-v" data-i18n="tv_data">Ecological Footprint Data Analyst — MySQL, Python, automation &amp; web</div></div>
+    <div class="trust-item"><div class="trust-k" data-i18n="tk_biz">Business</div><div class="trust-v" data-i18n="tv_biz">Client relations &amp; sales — HNW clients &amp; global brands</div></div>
+  </div>
+  <div class="trust-brands">
+    <span class="tb-label" data-i18n="tb_label">Past clients &amp; partners</span>
+    <span class="tb-names" data-i18n="tb_names">Unilever · AstraZeneca · BP · Oracle · Marriott · Hilton · Radisson · American Express</span>
+  </div>
+</div>
+
+<!-- EXAMPLES -->
+<section class="examples" id="examples">
+  <div class="wrap">
+    <div class="label" data-i18n="ex_label">Examples</div>
+    <h2 class="serif" data-i18n="ex_h">The work behind it.</h2>
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="frame">
+          <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/ecocups</span></div>
+          <div class="frame-shot"><img src="shot-ecocups.jpg" alt="EcoCups live website — custom compostable paper cups" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_ecocups">Website · Sustainability · Research</div>
+          <h3 class="serif">EcoCups</h3>
+          <div class="ex-result" data-i18n="r_ecocups">Caught a false &ldquo;plastic-free&rdquo; claim before it shipped.</div>
+          <p data-i18n="d_ecocups">A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. The build and the diligence, together.</p>
+          <a class="ex-link" href="https://mermina.github.io/ecocups/" target="_blank" rel="noopener" data-i18n="view">Try it live →</a>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="frame">
+          <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/green-claims-studio</span></div>
+          <div class="frame-shot"><img src="shot-greenclaims.jpg" alt="Green Claims Findability Studio live tool" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_greenclaims">Sustainability · Green-claims · My own venture</div>
+          <h3 class="serif" data-i18n="n_greenclaims">Green Claims</h3>
+          <div class="ex-result" data-i18n="r_greenclaims">Compliant AND findable — in one pass.</div>
+          <p data-i18n="d_greenclaims">My own service and tool — making green claims true, provable AND findable before the EU's new rules bite (Sept 2026). The live studio flags risky wording, rewrites it to comply, and turns your real certificates into machine-readable JSON-LD — the Certification markup Google and AI assistants read to verify a credential.</p>
+          <a class="ex-link" href="https://mermina.github.io/green-claims-studio/two-pass-demo.html" target="_blank" rel="noopener" data-i18n="try_gc">Try it live →</a>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="frame">
+          <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/staff-shift-scheduler</span></div>
+          <div class="frame-shot"><img src="shot-vaktatafla.jpg" alt="Vaktatafla staff scheduling tool — generated shift rota" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_vakta">Automation · Data</div>
+          <h3 class="serif" data-i18n="n_vakta">Vaktatafla — staff scheduling</h3>
+          <div class="ex-result" data-i18n="r_vakta">A fair fortnight rota in seconds.</div>
+          <p data-i18n="d_vakta">A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).</p>
+          <a class="ex-link" href="https://mermina.github.io/staff-shift-scheduler/" target="_blank" rel="noopener" data-i18n="try_vakta">Try it live →</a>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="frame">
+          <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/beyond-gdp-nordics</span></div>
+          <div class="frame-shot"><img src="shot-beyond-gdp.jpg" alt="Beyond-GDP Nordic dashboard — wellbeing indicators against Ecological Footprint and Biocapacity" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_wise">Data analysis · Sustainability · Research</div>
+          <h3 class="serif" data-i18n="n_wise">Beyond GDP &mdash; Nordic wellbeing &amp; footprint</h3>
+          <div class="ex-result" data-i18n="r_wise">Surfaced the &ldquo;Nordic paradox&rdquo; — top wellbeing, unsustainable footprint.</div>
+          <p data-i18n="d_wise">My own research, as an interactive dashboard. Three &ldquo;beyond-GDP&rdquo; measures of wellbeing — HDI, the Social Progress Index and the SDG Index — set against the Ecological Footprint and Biocapacity accounts I compiled, for the five Nordic countries, 2000–2022. I built the SQL behind it: three MySQL databases joined, period means, Pearson correlations and decoupling trends — then disaggregated to indicator level to show what the flattering headline scores hide.</p>
+          <a class="ex-link" href="https://mermina.github.io/beyond-gdp-nordics/" target="_blank" rel="noopener" data-i18n="try_wise">Try it live →</a>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="frame">
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/automation</span></div>
+          <div class="frame-shot diagram"><img src="automation-flow.svg" alt="Automation flow — a voice note and ten searches both becoming rows in a Google Sheet" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_auto">Automation · Python · AI</div>
+          <h3 class="serif" data-i18n="n_auto">Automation &mdash; farm bot &amp; market monitoring</h3>
+          <div class="ex-result" data-i18n="r_auto">Messy input in, tidy rows out.</div>
+          <p data-i18n="d_auto">Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic, reads each site and files what it finds.</p>
+          <a class="ex-link" href="https://mermina.github.io/automation/" target="_blank" rel="noopener" data-i18n="see_how">See how it works &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="bg-note" data-i18n-html="bg_note"><span class="bg-note-label">The background behind the work</span>An <strong>MS in Environment &amp; Natural Studies</strong> (University of Iceland, 2025), National Footprint &amp; Biocapacity accounts built in MySQL, and years coordinating sustainability education.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="label" data-i18n="about_label">About</div>
+    <h2 class="serif" data-i18n="about_h">Doing more with less — on purpose.</h2>
+    <div class="about-grid">
+      <img class="photo" src="marina.jpg" alt="Marina Ermina">
+      <div class="about-text">
+        <p data-i18n="about1">I'm Marina Ermina — a data analyst and sustainability researcher based in Reykjavík, now building automation, AI and web tools.</p>
+        <p data-i18n-html="about2">I came to it from a few directions — sustainability programmes, research, EU grant work, and years of teaching across three countries — and they all kept leading back to one question: how do we <strong>do more with less?</strong> That's the idea behind everything I build. Use fewer resources, then put what you save where it does the most good.</p>
+        <p data-i18n-html="about3">What matters most to me is the part that's easy to skip: I build the thing, then I do the research to make sure the <strong>claims behind it genuinely hold up</strong>. That rigour isn't an add-on — it's what my work is built on.</p>
+        <div class="langs" data-i18n-html="langs"><span>Languages:</span> English · Íslenska · Русский · Polski</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT I CAN HELP WITH -->
+<section class="help" id="help">
+  <div class="wrap">
+    <div class="label" data-i18n="help_label">What I can help with</div>
+    <h2 class="serif" data-i18n="help_h">Four ways I can help.</h2>
+    <div class="svc">
+      <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p></div>
+      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p></div>
+      <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability &amp; green-claims</h3><p data-i18n="s3_d">Checking whether "green" claims actually hold up against the rules and the evidence — before they become a problem.</p></div>
+      <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="label" style="color:var(--green-mid)" data-i18n="contact_label">Contact</div>
+    <h2 class="serif" data-i18n="contact_h">Let's talk.</h2>
+    <p data-i18n="contact_p">Working on something at the meeting point of sustainability and efficiency? I'd love to hear about it.</p>
+    <a class="contact-mail" href="mailto:me.mermina@gmail.com">me.mermina@gmail.com</a>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/marina-ermina-ba9a1012/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/mermina" target="_blank" rel="noopener">GitHub</a>
+      <a class="contact-cv" href="cv-marina-ermina.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="cv_short">CV</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Marina Ermina · Reykjavík</footer>
+
+<script>
+  const I18N={
+    en:{
+      nav_work:"Work",nav_about:"About",nav_contact:"Contact",
+      avail:"Available for freelance · open to the right role",
+      eyebrow:"Reykjavík · Iceland",
+      h1:"Where sustainability<br>meets <em>efficiency</em>.",
+      herosub:"I build practical tools — websites, automation and research — that help save resources and put them to better use, for nature and for people.",
+      cta1:"See my work",cta2:"Get in touch",scroll:"scroll",
+      cv:"Download CV (PDF)",cv_short:"CV",live:"Live",
+      tk_edu:"Education",tv_edu:"MS · Environment & Natural Studies — Háskóli Íslands",
+      tk_data:"Technical",tv_data:"Ecological Footprint Data Analyst — MySQL, Python, automation & web",
+      tk_biz:"Business",tv_biz:"Client relations & sales — HNW clients & global brands",
+      tb_label:"Past clients & partners",tb_names:"Unilever · AstraZeneca · BP · Oracle · Marriott · Hilton · Radisson · American Express",
+      help_label:"What I can help with",help_h:"Four ways I can help.",
+      s1_t:"Websites",s1_d:"Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.",
+      s2_t:"Automation",s2_d:"Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.",
+      s3_t:"Sustainability & green-claims",s3_d:"Checking whether \"green\" claims actually hold up against the rules and the evidence — before they become a problem.",
+      s4_t:"Data analysis",s4_d:"Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.",
+      ex_label:"Examples",ex_h:"The work behind it.",
+      r_ecocups:"Caught a false “plastic-free” claim before it shipped.",
+      r_greenclaims:"Compliant AND findable — in one pass.",
+      r_vakta:"A fair fortnight rota in seconds.",
+      t_ecocups:"Website · Sustainability · Research",
+      d_ecocups:"A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. The build and the diligence, together.",
+      t_greenclaims:"Sustainability · Green-claims · My own venture",n_greenclaims:"Green Claims",
+      d_greenclaims:"My own service and tool — making green claims true, provable AND findable before the EU's new rules bite (Sept 2026). The live studio flags risky wording, rewrites it to comply, and turns your real certificates into machine-readable JSON-LD — the Certification markup Google and AI assistants read to verify a credential.",
+      try_gc:"Try it live →",
+      t_wise:"Data analysis · Sustainability · Research",n_wise:"Beyond GDP — Nordic wellbeing & footprint",
+      r_wise:"Surfaced the “Nordic paradox” — top wellbeing, unsustainable footprint.",
+      d_wise:"My own research, as an interactive dashboard. Three “beyond-GDP” measures of wellbeing — HDI, the Social Progress Index and the SDG Index — set against the Ecological Footprint and Biocapacity accounts I compiled, for the five Nordic countries, 2000–2022. I built the SQL behind it: three MySQL databases joined, period means, Pearson correlations and decoupling trends — then disaggregated to indicator level to show what the flattering headline scores hide.",
+      try_wise:"Try it live →",
+t_auto:"Automation · Python · AI",n_auto:"Automation — farm bot & market monitoring",
+      r_auto:"Messy input in, tidy rows out.",
+      d_auto:"Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic, reads each site and files what it finds.",
+      see_how:"See how it works →",
+      t_vakta:"Automation · Data",n_vakta:"Vaktatafla — staff scheduling",
+      d_vakta:"A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).",
+      view:"Try it live →",details:"Details on request →",try_vakta:"Try it live →",
+      bg_note:"<span class='bg-note-label'>The background behind the work</span>An <strong>MS in Environment &amp; Natural Studies</strong> (Háskóli Íslands, 2025), National Footprint &amp; Biocapacity accounts built in MySQL as Data Analyst at the International Ecological Footprint Learning Lab, and years coordinating EU-grant sustainability programmes.",
+      about_label:"About",about_h:"Doing more with less — on purpose.",
+      about1:"I'm Marina Ermina — a data analyst and sustainability researcher based in Reykjavík, now building automation, AI and web tools.",
+      about2:"I came to it from a few directions — sustainability programmes, research, EU grant work, and years of teaching across three countries — and they all kept leading back to one question: how do we <strong>do more with less?</strong> That's the idea behind everything I build. Use fewer resources, then put what you save where it does the most good.",
+      about3:"What matters most to me is the part that's easy to skip: I build the thing, then I do the research to make sure the <strong>claims behind it genuinely hold up</strong>. That rigour isn't an add-on — it's what my work is built on.",
+      langs:"<span>Languages:</span> English · Íslenska · Русский · Polski",
+      contact_label:"Contact",contact_h:"Let's talk.",
+      contact_p:"Working on something at the meeting point of sustainability and efficiency? I'd love to hear about it.",
+      q_label:"In their words",q_quote:"“Your client's words go here.”",q_name:"Client name",q_role:"Role, Company"
+    },
+    is:{
+      nav_work:"Verk",nav_about:"Um mig",nav_contact:"Samband",
+      avail:"Laus í verkefni · opin fyrir réttu stöðunni",
+      eyebrow:"Reykjavík · Ísland",
+      h1:"Þar sem sjálfbærni<br>mætir <em>hagkvæmni</em>.",
+      herosub:"Ég smíða hagnýt verkfæri — vefsíður, sjálfvirkni og rannsóknir — sem hjálpa til við að spara auðlindir og nýta þær betur, fyrir náttúruna og fólk.",
+      cta1:"Sjá verkin mín",cta2:"Hafa samband",scroll:"skruna",
+      cv:"Sækja ferilskrá (PDF)",cv_short:"Ferilskrá",live:"Í beinni",
+      tk_edu:"Menntun",tv_edu:"MS · Umhverfis- og auðlindafræði — Háskóli Íslands",
+      tk_data:"Tæknikunnátta",tv_data:"Sérfræðingur í vistspori — MySQL, Python, sjálfvirkni og vefur",
+      tk_biz:"Viðskipti",tv_biz:"Viðskiptatengsl og sala — verðmætir viðskiptavinir og alþjóðleg vörumerki",
+      tb_label:"Fyrri viðskiptavinir og samstarfsaðilar",tb_names:"Unilever · AstraZeneca · BP · Oracle · Marriott · Hilton · Radisson · American Express",
+      help_label:"Það sem ég get aðstoðað með",help_h:"Fjórar leiðir til að hjálpa.",
+      s1_t:"Vefsíður",s1_d:"Tvítyngdar, sérsmíðaðar vefsíður fyrir lítil fyrirtæki og verkefni — frá fyrsta samtali við viðskiptavin að lifandi síðu sem virkar á öllum skjám.",
+      s2_t:"Sjálfvirkni",s2_d:"Verkfæri sem vinna endurtekna vinnu fyrir þig — tal eða gögn í töflureikni, vaktaskipulag og botta sem keyra sjálfir.",
+      s3_t:"Sjálfbærni og grænar fullyrðingar",s3_d:"Að kanna hvort „grænar“ fullyrðingar standist í raun gagnvart reglum og gögnum — áður en þær verða vandamál.",
+      s4_t:"Gagnagreining",s4_d:"Að breyta óreiðukenndum gögnum í skýr svör — hreinsun, greining og túlkun með MySQL, Python og R.",
+      ex_label:"Dæmi",ex_h:"Verkin að baki.",
+      r_ecocups:"Fann falska „plastlaust“ fullyrðingu áður en hún fór í loftið.",
+      r_greenclaims:"Í samræmi OG finnanlegt — í einni yfirferð.",
+      r_vakta:"Sanngjörn hálfsmánaðar-vaktatafla á augabragði.",
+      t_ecocups:"Vefur · Sjálfbærni · Rannsóknir",
+      d_ecocups:"Tvítyngd B2B-vefsíða og áhrifareiknivél fyrir jarðgeranlega bolla — auk rannsóknar á grænum fullyrðingum sem leiddi í ljós að varan var ekki eins græn og hún var kynnt, svo hún var aldrei birt. Smíðin og rýnin, saman.",
+      t_greenclaims:"Sjálfbærni · Grænar fullyrðingar · Eigið verkefni",n_greenclaims:"Green Claims",
+      d_greenclaims:"Mín eigin þjónusta og verkfæri — að gera grænar fullyrðingar sannar, sannanlegar OG finnanlegar áður en nýjar reglur ESB taka gildi (sept. 2026). Lifandi smiðjan merkir áhættusöm orð, endurskrifar þau svo þau standist reglur, og breytir raunverulegum vottorðum þínum í véllesanlegt JSON-LD — Certification-merkinguna sem Google og gervigreindaraðstoðarmenn lesa til að staðfesta vottun.",
+      try_gc:"Prófaðu í beinni →",
+      t_wise:"Gagnagreining · Sjálfbærni · Rannsóknir",n_wise:"Handan VLF — velsæld og vistspor Norðurlanda",
+      r_wise:"Afhjúpaði „norrænu þversögnina“ — mikil velsæld, ósjálfbært vistspor.",
+      d_wise:"Mín eigin rannsókn sem gagnvirkt mælaborð. Þrír „handan-VLF“ mælikvarðar á velsæld — HDI, Social Progress Index og SDG-vísitalan — bornir saman við vistspors- og lífgetureikningana sem ég tók saman, fyrir Norðurlöndin fimm, 2000–2022. Ég byggði SQL-vinnsluna að baki: þrír MySQL-gagnagrunnar tengdir saman, tímabilsmeðaltöl, Pearson-fylgni og þróun í aftengingu — og svo sundurgreining niður á einstaka vísa til að sýna hvað glæsilegu heildartölurnar fela.",
+      try_wise:"Prófaðu í beinni →",
+t_auto:"Sjálfvirkni · Python · Gervigreind",n_auto:"Sjálfvirkni — bóndabotti og markaðsvöktun",
+      r_auto:"Óreiða inn, snyrtilegar línur út.",
+      d_auto:"Tvö verkefni sem taka endurtekna vinnu af borðinu. Telegram-botti breytir verki sem sagt er upphátt úti á túni í dagsetta línu í Google Sheet, allan sólarhringinn. Python-skrifta leitar að birgjum á ensku og íslensku, les hverja síðu og skráir það sem hún finnur.",
+      see_how:"Sjá hvernig það virkar →",
+      t_vakta:"Sjálfvirkni · Gögn",n_vakta:"Vaktatafla",
+      d_vakta:"Sjálfstætt verkfæri sem breytir starfsfólki, framboði og mönnunarreglum í sanngjarna vaktatöflu — tvítyngt, breytanlegt í vafra og GDPR-öruggt (sýnidæmi notar tilbúin nöfn).",
+      view:"Prófaðu í beinni →",details:"Nánar sé óskað →",try_vakta:"Prófaðu í beinni →",
+      bg_note:"<span class='bg-note-label'>Bakgrunnurinn að baki verkunum</span>Að baki verkefnunum: <strong>MS í umhverfis- og auðlindafræði</strong> (Háskóli Íslands, 2025), þjóðar-vistspora- og lífgetureikningar í MySQL, og margra ára reynsla af að samræma sjálfbærnifræðslu.",
+      about_label:"Um mig",about_h:"Að gera meira með minna — af ásetningi.",
+      about1:"Ég heiti Marina Ermina — gagnagreinandi og sjálfbærnirannsakandi í Reykjavík, sem er nú að smíða sjálfvirkni-, gervigreindar- og vefverkfæri.",
+      about2:"Ég kom að þessu úr ýmsum áttum — sjálfbærniverkefnum, rannsóknum, ESB-styrkjavinnu og margra ára kennslu í þremur löndum — og þau leiddu alltaf aftur að sömu spurningunni: hvernig gerum við <strong>meira með minna?</strong> Það er hugmyndin á bak við allt sem ég smíða. Nota færri auðlindir og setja svo það sem sparast þangað sem það gerir mest gagn.",
+      about3:"Það sem skiptir mig mestu er sá hluti sem auðvelt er að sleppa: ég smíða hlutinn og geri svo rannsóknina til að ganga úr skugga um að <strong>fullyrðingarnar að baki standist í raun</strong>. Sú nákvæmni er ekki viðbót — hún er undirstaða vinnu minnar.",
+      langs:"<span>Tungumál:</span> Enska · Íslenska · Rússneska · Pólska",
+      contact_label:"Samband",contact_h:"Höfum samband.",
+      contact_p:"Ertu með eitthvað á mótum sjálfbærni og hagkvæmni? Ég vil endilega heyra af því.",
+      q_label:"Þeirra orð",q_quote:"„Orð viðskiptavinarins þíns koma hér.“",q_name:"Nafn viðskiptavinar",q_role:"Hlutverk, fyrirtæki"
+    }
+  };
+  function setLang(l){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(I18N[l][k]!=null)e.textContent=I18N[l][k];});
+    document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.getAttribute('data-i18n-html');if(I18N[l][k]!=null)e.innerHTML=I18N[l][k];});
+    document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+    try{localStorage.setItem('lang',l);}catch(e){}
+  }
+  document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let saved='en';try{saved=localStorage.getItem('lang')||'en';}catch(e){}
+  setLang(saved);
+
+  // ── nav: transparent over hero, solid after ──
+  (function(){
+    const nav=document.getElementById('nav');
+    const hero=document.querySelector('.hero');
+    const onScroll=()=>{const t=hero.offsetHeight - 72;nav.classList.toggle('solid',window.scrollY>t);};
+    onScroll();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+  })();
+
+  // ── scroll reveal (robust: never leaves content hidden) ──
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    const els=[...document.querySelectorAll('.svc-card,.ex-card,.about-grid,.contact .wrap,.help .label,.help h2,.examples .label,.examples h2,.about .label,.about h2')];
+    document.querySelectorAll('.svc-card,.ex-card').forEach(el=>{const i=[...el.parentNode.children].indexOf(el);el.style.transitionDelay=((i%4)*70)+'ms';});
+    els.forEach(el=>el.classList.add('reveal'));
+    const show=el=>{el.classList.add('in');io.unobserve(el);};
+    const revealVisible=()=>{els.forEach(el=>{if(!el.classList.contains('in')&&el.getBoundingClientRect().top<window.innerHeight*0.92)show(el);});};
+    const io=new IntersectionObserver((ents)=>{ents.forEach(e=>{if(e.isIntersecting)show(e.target);});},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+    els.forEach(el=>io.observe(el));
+    revealVisible();
+    window.addEventListener('scroll',revealVisible,{passive:true});
+    window.addEventListener('hashchange',()=>setTimeout(revealVisible,60));
+    setTimeout(()=>els.forEach(el=>el.classList.add('in')),2500);
+  })();
+
+  // ── hero constellation ──
+  (function(){
+    const c=document.getElementById('bg'),x=c.getContext('2d');let w,h,pts,raf;
+    const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    function size(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;}
+    function init(){size();const n=Math.min(80,Math.round(w*h/26000/devicePixelRatio));pts=[];for(let i=0;i<n;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.18*devicePixelRatio,vy:(-.15-Math.random()*.25)*devicePixelRatio,r:(Math.random()*1.6+.6)*devicePixelRatio});}
+    function frame(){
+      x.clearRect(0,0,w,h);
+      for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.y<-10)p.y=h+10;if(p.x<-10)p.x=w+10;if(p.x>w+10)p.x=-10;}
+      for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy),max=120*devicePixelRatio;if(d<max){x.strokeStyle='rgba(127,201,166,'+(1-d/max)*.16+')';x.lineWidth=devicePixelRatio;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}}}
+      for(const p of pts){x.fillStyle='rgba(160,220,190,.55)';x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();}
+      raf=requestAnimationFrame(frame);
+    }
+    if(!reduce){init();frame();window.addEventListener('resize',()=>{cancelAnimationFrame(raf);init();frame();});}
+  })();
+</script>
+</body>
+</html>

@@ -121,6 +121,12 @@
   .ex-result{font-weight:600;font-size:1.06rem;line-height:1.32;color:var(--forest);margin:2px 0 10px}
   .ex-body p{color:var(--muted);font-size:.97rem;flex:1}
   .ex-link{margin-top:16px;font-weight:600;font-size:14px;color:var(--green);text-decoration:none;align-self:flex-start}
+  .ex-stack{margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .ex-stack .lbl{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-right:7px}
+  .ex-links{margin-top:14px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .ex-links .ex-link{margin-top:0}
+  .ex-links .ghsec{color:var(--muted);font-weight:500}
+  .ex-links .ghsec:hover{color:var(--ink)}
   .ex-link:hover{color:var(--forest)}
   .bg-note{margin-top:40px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:820px;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;padding:20px 24px}
   .bg-note strong{color:var(--ink)}
@@ -256,9 +262,12 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_ecocups">Website · Sustainability · Research</div>
           <h3 class="serif">EcoCups</h3>
-          <div class="ex-result" data-i18n="r_ecocups">Caught a false &ldquo;plastic-free&rdquo; claim before it shipped.</div>
           <p data-i18n="d_ecocups">A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. The build and the diligence, together.</p>
-          <a class="ex-link" href="https://mermina.github.io/ecocups/" target="_blank" rel="noopener" data-i18n="view">Try it live →</a>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://mermina.github.io/ecocups/" target="_blank" rel="noopener" data-i18n="view">Try it live →</a>
+            <a class="ex-link ghsec" href="https://github.com/mermina/ecocups" target="_blank" rel="noopener" data-i18n="code">Code &#8599;</a>
+          </div>
         </div>
       </div>
 
@@ -271,9 +280,12 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_greenclaims">Sustainability · Green-claims · My own venture</div>
           <h3 class="serif" data-i18n="n_greenclaims">Green Claims</h3>
-          <div class="ex-result" data-i18n="r_greenclaims">Compliant AND findable — in one pass.</div>
           <p data-i18n="d_greenclaims">My own service and tool — making green claims true, provable AND findable before the EU's new rules bite (Sept 2026). The live studio flags risky wording, rewrites it to comply, and turns your real certificates into machine-readable JSON-LD — the Certification markup Google and AI assistants read to verify a credential.</p>
-          <a class="ex-link" href="https://mermina.github.io/green-claims-studio/two-pass-demo.html" target="_blank" rel="noopener" data-i18n="try_gc">Try it live →</a>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://mermina.github.io/green-claims-studio/two-pass-demo.html" target="_blank" rel="noopener" data-i18n="try_gc">Try it live →</a>
+            <a class="ex-link ghsec" href="https://github.com/mermina/green-claims-studio" target="_blank" rel="noopener" data-i18n="code">Code &#8599;</a>
+          </div>
         </div>
       </div>
 
@@ -286,9 +298,12 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_vakta">Automation · Data</div>
           <h3 class="serif" data-i18n="n_vakta">Vaktatafla — staff scheduling</h3>
-          <div class="ex-result" data-i18n="r_vakta">A fair fortnight rota in seconds.</div>
           <p data-i18n="d_vakta">A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).</p>
-          <a class="ex-link" href="https://mermina.github.io/staff-shift-scheduler/" target="_blank" rel="noopener" data-i18n="try_vakta">Try it live →</a>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://mermina.github.io/staff-shift-scheduler/" target="_blank" rel="noopener" data-i18n="try_vakta">Try it live →</a>
+            <a class="ex-link ghsec" href="https://github.com/mermina/staff-shift-scheduler" target="_blank" rel="noopener" data-i18n="code">Code &#8599;</a>
+          </div>
         </div>
       </div>
 
@@ -301,9 +316,12 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_wise">Data analysis · Sustainability · Research</div>
           <h3 class="serif" data-i18n="n_wise">Beyond GDP &mdash; Nordic wellbeing &amp; footprint</h3>
-          <div class="ex-result" data-i18n="r_wise">Surfaced the &ldquo;Nordic paradox&rdquo; — top wellbeing, unsustainable footprint.</div>
           <p data-i18n="d_wise">My own research, as an interactive dashboard. Three &ldquo;beyond-GDP&rdquo; measures of wellbeing — HDI, the Social Progress Index and the SDG Index — set against the Ecological Footprint and Biocapacity accounts I compiled, for the five Nordic countries, 2000–2022. I built the SQL behind it: three MySQL databases joined, period means, Pearson correlations and decoupling trends — then disaggregated to indicator level to show what the flattering headline scores hide.</p>
-          <a class="ex-link" href="https://mermina.github.io/beyond-gdp-nordics/" target="_blank" rel="noopener" data-i18n="try_wise">Try it live →</a>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>MySQL, Python, R, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://mermina.github.io/beyond-gdp-nordics/" target="_blank" rel="noopener" data-i18n="try_wise">Try it live →</a>
+            <a class="ex-link ghsec" href="https://github.com/mermina/beyond-gdp-nordics" target="_blank" rel="noopener" data-i18n="code">Code &#8599;</a>
+          </div>
         </div>
       </div>
 
@@ -315,9 +333,12 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_auto">Automation · Python · AI</div>
           <h3 class="serif" data-i18n="n_auto">Automation &mdash; farm bot &amp; market monitoring</h3>
-          <div class="ex-result" data-i18n="r_auto">Messy input in, tidy rows out.</div>
           <p data-i18n="d_auto">Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic, reads each site and files what it finds.</p>
-          <a class="ex-link" href="https://mermina.github.io/automation/" target="_blank" rel="noopener" data-i18n="see_how">See how it works &rarr;</a>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>Python, Whisper, Cloud Run, Sheets API</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://mermina.github.io/automation/" target="_blank" rel="noopener" data-i18n="see_how">See how it works &rarr;</a>
+            <a class="ex-link ghsec" href="https://github.com/mermina/automation" target="_blank" rel="noopener" data-i18n="code">Code &#8599;</a>
+          </div>
         </div>
       </div>
 
@@ -330,9 +351,12 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_raw">Website · Client work</div>
           <h3 class="serif" data-i18n="n_raw">Love Raw Cake</h3>
-          <div class="ex-result" data-i18n="r_raw">My first client build, run start to finish by me.</div>
           <p data-i18n="d_raw">A bilingual one-page site for a Reykjavík raw-cake maker, hand-coded and mobile-first. No shopping cart by design — orders come through direct contact. Built out of a discovery meeting: her goals, her customers, her constraints. My first client engagement run entirely by me.</p>
-          <a class="ex-link" href="https://mermina.github.io/love-raw-cake/" target="_blank" rel="noopener" data-i18n="view">Try it live &rarr;</a>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://mermina.github.io/love-raw-cake/" target="_blank" rel="noopener" data-i18n="view">Try it live &rarr;</a>
+            <a class="ex-link ghsec" href="https://github.com/mermina/love-raw-cake" target="_blank" rel="noopener" data-i18n="code">Code &#8599;</a>
+          </div>
         </div>
       </div>
     </div>
@@ -351,6 +375,7 @@
         <p data-i18n="about1">I'm Marina Ermina — a data analyst and sustainability researcher based in Reykjavík, now building automation, AI and web tools.</p>
         <p data-i18n-html="about2">I came to it from a few directions — sustainability programmes, research, EU grant work, and years of teaching across three countries — and they all kept leading back to one question: how do we <strong>do more with less?</strong> That's the idea behind everything I build. Use fewer resources, then put what you save where it does the most good.</p>
         <p data-i18n-html="about3">What matters most to me is the part that's easy to skip: I build the thing, then I do the research to make sure the <strong>claims behind it genuinely hold up</strong>. That rigour isn't an add-on — it's what my work is built on.</p>
+        <p data-i18n="about4">I also build fast, with AI-assisted development — it's how one person can ship this range of work, and it's the same principle as everything else here: more with less.</p>
         <div class="langs" data-i18n-html="langs"><span>Languages:</span> English · Íslenska · Русский · Polski</div>
       </div>
     </div>
@@ -402,6 +427,7 @@
       herosub:"I build practical tools — websites, automation and research — that help save resources and put them to better use, for nature and for people.",
       cta1:"See my work",cta2:"Get in touch",scroll:"scroll",
       cv:"Download CV (PDF)",cv_short:"CV",live:"Live",
+      stack_label:"Built with",code:"Code \u2197",about4:"I also build fast, with AI-assisted development — it's how one person can ship this range of work, and it's the same principle as everything else here: more with less.",
       tk_edu:"Education",tv_edu:"MS · Environment & Natural Studies — Háskóli Íslands",
       tk_data:"Technical",tv_data:"Ecological Footprint Data Analyst — MySQL, Python, automation & web",
       tk_biz:"Business",tv_biz:"Client relations & sales — HNW clients & global brands",
@@ -412,26 +438,20 @@
       s3_t:"Sustainability & green-claims",s3_d:"Checking whether \"green\" claims actually hold up against the rules and the evidence — before they become a problem.",
       s4_t:"Data analysis",s4_d:"Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.",
       ex_label:"Examples",ex_h:"The work behind it.",
-      r_ecocups:"Caught a false “plastic-free” claim before it shipped.",
-      r_greenclaims:"Compliant AND findable — in one pass.",
-      r_vakta:"A fair fortnight rota in seconds.",
-      t_ecocups:"Website · Sustainability · Research",
+      t_ecocups:"Website build · Impact calculator · Green-claims research",
       d_ecocups:"A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. The build and the diligence, together.",
-      t_greenclaims:"Sustainability · Green-claims · My own venture",n_greenclaims:"Green Claims",
+      t_greenclaims:"Web-tool build · Green-claims research · My own product",n_greenclaims:"Green Claims",
       d_greenclaims:"My own service and tool — making green claims true, provable AND findable before the EU's new rules bite (Sept 2026). The live studio flags risky wording, rewrites it to comply, and turns your real certificates into machine-readable JSON-LD — the Certification markup Google and AI assistants read to verify a credential.",
       try_gc:"Try it live →",
-      t_wise:"Data analysis · Sustainability · Research",n_wise:"Beyond GDP — Nordic wellbeing & footprint",
-      r_wise:"Surfaced the “Nordic paradox” — top wellbeing, unsustainable footprint.",
+      t_wise:"Data analysis · Sustainability research · Dashboard build",n_wise:"Beyond GDP — Nordic wellbeing & footprint",
       d_wise:"My own research, as an interactive dashboard. Three “beyond-GDP” measures of wellbeing — HDI, the Social Progress Index and the SDG Index — set against the Ecological Footprint and Biocapacity accounts I compiled, for the five Nordic countries, 2000–2022. I built the SQL behind it: three MySQL databases joined, period means, Pearson correlations and decoupling trends — then disaggregated to indicator level to show what the flattering headline scores hide.",
       try_wise:"Try it live →",
-t_raw:"Website · Client work",n_raw:"Love Raw Cake",
-      r_raw:"My first client build, run start to finish by me.",
+t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
       d_raw:"A bilingual one-page site for a Reykjavík raw-cake maker, hand-coded and mobile-first. No shopping cart by design — orders come through direct contact. Built out of a discovery meeting: her goals, her customers, her constraints. My first client engagement run entirely by me.",
-      t_auto:"Automation · Python · AI",n_auto:"Automation — farm bot & market monitoring",
-      r_auto:"Messy input in, tidy rows out.",
+      t_auto:"Automation build · Voice AI · Data pipeline",n_auto:"Automation — farm bot & market monitoring",
       d_auto:"Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic, reads each site and files what it finds.",
       see_how:"See how it works →",
-      t_vakta:"Automation · Data",n_vakta:"Vaktatafla — staff scheduling",
+      t_vakta:"Web-app build · Scheduling logic · Data handling",n_vakta:"Vaktatafla — staff scheduling",
       d_vakta:"A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).",
       view:"Try it live →",details:"Details on request →",try_vakta:"Try it live →",
       bg_note:"<span class='bg-note-label'>The background behind the work</span>An <strong>MS in Environment &amp; Natural Studies</strong> (Háskóli Íslands, 2025), National Footprint &amp; Biocapacity accounts built in MySQL as Data Analyst at the International Ecological Footprint Learning Lab, and years coordinating EU-grant sustainability programmes.",
@@ -452,6 +472,7 @@ t_raw:"Website · Client work",n_raw:"Love Raw Cake",
       herosub:"Ég smíða hagnýt verkfæri — vefsíður, sjálfvirkni og rannsóknir — sem hjálpa til við að spara auðlindir og nýta þær betur, fyrir náttúruna og fólk.",
       cta1:"Sjá verkin mín",cta2:"Hafa samband",scroll:"skruna",
       cv:"Sækja ferilskrá (PDF)",cv_short:"Ferilskrá",live:"Í beinni",
+      stack_label:"Byggt með",code:"Kóði \u2197",about4:"Ég smíða líka hratt — með gervigreindarstuddri þróun. Þannig getur einn einstaklingur skilað þessari breidd af verkefnum, og það er sama hugmyndin og allt annað hér: meira með minna.",
       tk_edu:"Menntun",tv_edu:"MS · Umhverfis- og auðlindafræði — Háskóli Íslands",
       tk_data:"Tæknikunnátta",tv_data:"Sérfræðingur í vistspori — MySQL, Python, sjálfvirkni og vefur",
       tk_biz:"Viðskipti",tv_biz:"Viðskiptatengsl og sala — verðmætir viðskiptavinir og alþjóðleg vörumerki",
@@ -462,26 +483,20 @@ t_raw:"Website · Client work",n_raw:"Love Raw Cake",
       s3_t:"Sjálfbærni og grænar fullyrðingar",s3_d:"Að kanna hvort „grænar“ fullyrðingar standist í raun gagnvart reglum og gögnum — áður en þær verða vandamál.",
       s4_t:"Gagnagreining",s4_d:"Að breyta óreiðukenndum gögnum í skýr svör — hreinsun, greining og túlkun með MySQL, Python og R.",
       ex_label:"Dæmi",ex_h:"Verkin að baki.",
-      r_ecocups:"Fann falska „plastlaust“ fullyrðingu áður en hún fór í loftið.",
-      r_greenclaims:"Í samræmi OG finnanlegt — í einni yfirferð.",
-      r_vakta:"Sanngjörn hálfsmánaðar-vaktatafla á augabragði.",
-      t_ecocups:"Vefur · Sjálfbærni · Rannsóknir",
+      t_ecocups:"Vefsíðugerð · Áhrifareiknivél · Rannsókn á grænum fullyrðingum",
       d_ecocups:"Tvítyngd B2B-vefsíða og áhrifareiknivél fyrir jarðgeranlega bolla — auk rannsóknar á grænum fullyrðingum sem leiddi í ljós að varan var ekki eins græn og hún var kynnt, svo hún var aldrei birt. Smíðin og rýnin, saman.",
-      t_greenclaims:"Sjálfbærni · Grænar fullyrðingar · Eigið verkefni",n_greenclaims:"Green Claims",
+      t_greenclaims:"Vefverkfæri · Rannsókn á grænum fullyrðingum · Eigin vara",n_greenclaims:"Green Claims",
       d_greenclaims:"Mín eigin þjónusta og verkfæri — að gera grænar fullyrðingar sannar, sannanlegar OG finnanlegar áður en nýjar reglur ESB taka gildi (sept. 2026). Lifandi smiðjan merkir áhættusöm orð, endurskrifar þau svo þau standist reglur, og breytir raunverulegum vottorðum þínum í véllesanlegt JSON-LD — Certification-merkinguna sem Google og gervigreindaraðstoðarmenn lesa til að staðfesta vottun.",
       try_gc:"Prófaðu í beinni →",
-      t_wise:"Gagnagreining · Sjálfbærni · Rannsóknir",n_wise:"Handan VLF — velsæld og vistspor Norðurlanda",
-      r_wise:"Afhjúpaði „norrænu þversögnina“ — mikil velsæld, ósjálfbært vistspor.",
+      t_wise:"Gagnagreining · Sjálfbærnirannsókn · Mælaborðsgerð",n_wise:"Handan VLF — velsæld og vistspor Norðurlanda",
       d_wise:"Mín eigin rannsókn sem gagnvirkt mælaborð. Þrír „handan-VLF“ mælikvarðar á velsæld — HDI, Social Progress Index og SDG-vísitalan — bornir saman við vistspors- og lífgetureikningana sem ég tók saman, fyrir Norðurlöndin fimm, 2000–2022. Ég byggði SQL-vinnsluna að baki: þrír MySQL-gagnagrunnar tengdir saman, tímabilsmeðaltöl, Pearson-fylgni og þróun í aftengingu — og svo sundurgreining niður á einstaka vísa til að sýna hvað glæsilegu heildartölurnar fela.",
       try_wise:"Prófaðu í beinni →",
-t_raw:"Vefur · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
-      r_raw:"Fyrsta verkefnið fyrir viðskiptavin sem ég stýrði frá upphafi til enda.",
+t_raw:"Vefsíðugerð · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
       d_raw:"Tvítyngd einnar-síðu vefsíða fyrir hrákökugerð í Reykjavík, handkóðuð og hönnuð fyrir síma fyrst. Engin innkaupakarfa — pantanir fara fram í beinu sambandi. Byggð upp úr þarfagreiningarfundi: markmið hennar, viðskiptavinir og skorður. Fyrsta verkefnið sem ég stýrði alfarið sjálf.",
-      t_auto:"Sjálfvirkni · Python · Gervigreind",n_auto:"Sjálfvirkni — bóndabotti og markaðsvöktun",
-      r_auto:"Óreiða inn, snyrtilegar línur út.",
+      t_auto:"Sjálfvirknismíði · Raddgervigreind · Gagnaferli",n_auto:"Sjálfvirkni — bóndabotti og markaðsvöktun",
       d_auto:"Tvö verkefni sem taka endurtekna vinnu af borðinu. Telegram-botti breytir verki sem sagt er upphátt úti á túni í dagsetta línu í Google Sheet, allan sólarhringinn. Python-skrifta leitar að birgjum á ensku og íslensku, les hverja síðu og skráir það sem hún finnur.",
       see_how:"Sjá hvernig það virkar →",
-      t_vakta:"Sjálfvirkni · Gögn",n_vakta:"Vaktatafla",
+      t_vakta:"Vefsmíði · Vaktalógík · Gagnavinnsla",n_vakta:"Vaktatafla",
       d_vakta:"Sjálfstætt verkfæri sem breytir starfsfólki, framboði og mönnunarreglum í sanngjarna vaktatöflu — tvítyngt, breytanlegt í vafra og GDPR-öruggt (sýnidæmi notar tilbúin nöfn).",
       view:"Prófaðu í beinni →",details:"Nánar sé óskað →",try_vakta:"Prófaðu í beinni →",
       bg_note:"<span class='bg-note-label'>Bakgrunnurinn að baki verkunum</span>Að baki verkefnunum: <strong>MS í umhverfis- og auðlindafræði</strong> (Háskóli Íslands, 2025), þjóðar-vistspora- og lífgetureikningar í MySQL, og margra ára reynsla af að samræma sjálfbærnifræðslu.",

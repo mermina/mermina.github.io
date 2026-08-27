@@ -92,6 +92,10 @@
   .svc-ic{width:36px;height:36px;border-radius:10px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
   .svc-card h3{font-size:1.05rem;margin-bottom:6px}
   .svc-built{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.5}
+  .svc-built a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(23,32,27,.22);transition:.15s}
+  .svc-built a:hover{color:var(--green);border-bottom-color:var(--green)}
+  .ex-card{scroll-margin-top:88px}
+  .ex-card:target{box-shadow:0 0 0 2px var(--green-mid),0 18px 44px rgba(13,37,26,.13)}
   .svc-built .lbl{display:block;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
   .svc-card p{color:var(--muted);font-size:.88rem;line-height:1.55}
 
@@ -129,9 +133,8 @@
   .ex-links .ghsec{color:var(--muted);font-weight:500}
   .ex-links .ghsec:hover{color:var(--ink)}
   .ex-link:hover{color:var(--forest)}
-  .bg-note{margin-top:40px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:820px;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;padding:20px 24px}
   .bg-note strong{color:var(--ink)}
-  .bg-note .bg-note-label{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+  .bg-note
 
   /* ── TESTIMONIAL (ready to use — see note below) ──
      When you have a real client quote, delete the surrounding comment
@@ -293,10 +296,10 @@
     <h2 class="serif" data-i18n="help_h">Four ways I can help.</h2>
     <p class="help-intro" data-i18n="help_intro">I also build fast, with AI-assisted development — it&rsquo;s how one person can ship this range of work, and it&rsquo;s the same principle as everything else here: more with less.</p>
     <div class="svc">
-      <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s1_b">EcoCups · Love Raw Cake</span></div></div>
-      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s2_b">FarmBot · Market monitoring · Staff scheduler</span></div></div>
-      <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability research</h3><p data-i18n="s3_d">Checking whether &quot;green&quot; claims actually hold up against the rules and the evidence — and measuring sustainability with indicators that stand up to scrutiny.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s3_b">Green Claims · EcoCups · Beyond GDP</span></div></div>
-      <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s4_b">Beyond GDP · Market monitoring</span></div></div>
+      <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s1_b"><a href="#p-ecocups">EcoCups</a> · <a href="#p-rawcake">Love Raw Cake</a></span></div></div>
+      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s2_b"><a href="#p-automation">FarmBot</a> · <a href="#p-automation">Market monitoring</a> · <a href="#p-staff">Staff scheduler</a></span></div></div>
+      <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability research</h3><p data-i18n="s3_d">Checking whether &quot;green&quot; claims actually hold up against the rules and the evidence — and measuring sustainability with indicators that stand up to scrutiny.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s3_b"><a href="#p-greenclaims">Green Claims</a> · <a href="#p-ecocups">EcoCups</a> · <a href="#p-beyondgdp">Beyond GDP</a></span></div></div>
+      <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s4_b"><a href="#p-beyondgdp">Beyond GDP</a> · <a href="#p-automation">Market monitoring</a></span></div></div>
     </div>
   </div>
 </section>
@@ -308,7 +311,7 @@
     <h2 class="serif" data-i18n="ex_h">The work behind it.</h2>
     <div class="ex-grid">
 
-      <div class="ex-card">
+      <div class="ex-card" id="p-ecocups">
         <div class="frame">
           <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
           <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/ecocups</span></div>
@@ -326,7 +329,7 @@
         </div>
       </div>
 
-      <div class="ex-card">
+      <div class="ex-card" id="p-greenclaims">
         <div class="frame">
           <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
           <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/green-claims-studio</span></div>
@@ -344,7 +347,7 @@
         </div>
       </div>
 
-      <div class="ex-card">
+      <div class="ex-card" id="p-beyondgdp">
         <div class="frame">
           <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
           <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/beyond-gdp-nordics</span></div>
@@ -362,7 +365,7 @@
         </div>
       </div>
 
-      <div class="ex-card">
+      <div class="ex-card" id="p-rawcake">
         <div class="frame">
           <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
           <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/love-raw-cake</span></div>
@@ -380,7 +383,7 @@
         </div>
       </div>
 
-      <div class="ex-card">
+      <div class="ex-card" id="p-staff">
         <div class="frame">
           <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
           <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/staff-shift-scheduler</span></div>
@@ -398,7 +401,7 @@
         </div>
       </div>
 
-      <div class="ex-card">
+      <div class="ex-card" id="p-automation">
         <div class="frame">
           <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">mermina.github.io/automation</span></div>
           <div class="frame-shot diagram"><img src="automation-flow.svg" alt="Automation flow — a voice note and ten searches both becoming rows in a Google Sheet" loading="lazy"></div>
@@ -415,7 +418,6 @@
         </div>
       </div>
     </div>
-    <p class="bg-note" data-i18n-html="bg_note"><span class="bg-note-label">The background behind the work</span>An <strong>MA in Environment &amp; Natural Resources</strong> (University of Iceland, 2025), National Footprint &amp; Biocapacity accounts built in MySQL, and years coordinating sustainability education.</p>
   </div>
 </section>
 
@@ -452,7 +454,7 @@
       cv:"Download CV (PDF)",langs_hero:"<span>Languages</span>English · Íslenska · Русский · Polski",pk_res:"Research",pv_res:"The research behind it",pp_res:"Two first-class Masters — Economics & Management, and Environment & Natural Resources — plus the National Footprint & Biocapacity Accounts, published and cited.",pk_build:"Building",pv_build:"I build for efficiency",pp_build:"Websites, impact calculators, voice automation and interactive dashboards — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.",pk_biz:"Business",pv_biz:"Business-focused and professional",pp_biz:"Twenty years in project management and client relations, in the UK and internationally — global brands, then coordinating EU-grant sustainability programmes.",help_intro:"I also build fast, with AI-assisted development — it’s how one person can ship this range of work, and it’s the same principle as everything else here: more with less.",cv_short:"CV",live:"Live",
       stack_label:"Built with",code:"Code \u2197",
 
-      built_label:"What I built",s1_b:"EcoCups · Love Raw Cake",s2_b:"FarmBot · Market monitoring · Staff scheduler",s3_b:"Green Claims · EcoCups · Beyond GDP",s4_b:"Beyond GDP · Market monitoring",
+      built_label:"What I built",s1_b:"<a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-rawcake\">Love Raw Cake</a>",s2_b:"<a href=\"#p-automation\">FarmBot</a> · <a href=\"#p-automation\">Market monitoring</a> · <a href=\"#p-staff\">Staff scheduler</a>",s3_b:"<a href=\"#p-greenclaims\">Green Claims</a> · <a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-beyondgdp\">Beyond GDP</a>",s4_b:"<a href=\"#p-beyondgdp\">Beyond GDP</a> · <a href=\"#p-automation\">Market monitoring</a>",
       so_res:"→ so the claims I make are checkable",
       so_build:"→ so I can ship it, not just advise on it",
       so_biz:"→ so I understand what you actually need",
@@ -478,7 +480,7 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
       t_vakta:"Web-app build · Scheduling logic · Data handling",n_vakta:"Staff scheduler",
       d_vakta:"A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).",
       view:"Try it live →",details:"Details on request →",try_vakta:"Try it live →",
-      bg_note:"<span class='bg-note-label'>The background behind the work</span>An <strong>MA in Environment &amp; Natural Resources</strong> (Háskóli Íslands, 2025), National Footprint &amp; Biocapacity accounts built in MySQL as Data Analyst at the International Ecological Footprint Learning Lab, and years coordinating EU-grant sustainability programmes.",
+
 
       contact_label:"Contact",contact_h:"Let's talk.",
       contact_p:"Working on something at the meeting point of sustainability and efficiency? I'd love to hear about it.",
@@ -495,7 +497,7 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
       cv:"Sækja ferilskrá (PDF)",langs_hero:"<span>Tungumál</span>Enska · Íslenska · Rússneska · Pólska",pk_res:"Rannsóknir",pv_res:"Rannsóknin að baki",pp_res:"Tvær meistaragráður með fyrstu einkunn — hagfræði og stjórnun, og umhverfis- og auðlindafræði — auk þjóðar-vistspora- og lífgetureikninganna, birtra og vitnað í.",pk_build:"Smíði",pv_build:"Ég smíða fyrir hagkvæmni",pp_build:"Vefsíður, áhrifareiknivélar, raddsjálfvirkni og gagnvirk mælaborð — byggð með HTML, CSS, JavaScript, MySQL, Python, R og gervigreindarverkfærum.",pk_biz:"Viðskipti",pv_biz:"Viðskiptamiðuð og fagleg",pp_biz:"Tuttugu ár í verkefnastjórnun og viðskiptatengslum, í Bretlandi og á alþjóðavettvangi — alþjóðleg vörumerki, svo samræming ESB-styrktra sjálfbærniverkefna.",help_intro:"Ég smíða líka hratt — með gervigreindarstuddri þróun. Þannig getur einn einstaklingur skilað þessari breidd af verkefnum, og það er sama hugmyndin og allt annað hér: meira með minna.",cv_short:"Ferilskrá",live:"Í beinni",
       stack_label:"Byggt með",code:"Kóði \u2197",
 
-      built_label:"Það sem ég smíðaði",s1_b:"EcoCups · Love Raw Cake",s2_b:"FarmBot · Markaðsvöktun · Vaktatafla",s3_b:"Green Claims · EcoCups · Handan VLF",s4_b:"Handan VLF · Markaðsvöktun",
+      built_label:"Það sem ég smíðaði",s1_b:"<a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-rawcake\">Love Raw Cake</a>",s2_b:"<a href=\"#p-automation\">FarmBot</a> · <a href=\"#p-automation\">Markaðsvöktun</a> · <a href=\"#p-staff\">Vaktatafla</a>",s3_b:"<a href=\"#p-greenclaims\">Green Claims</a> · <a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-beyondgdp\">Handan VLF</a>",s4_b:"<a href=\"#p-beyondgdp\">Handan VLF</a> · <a href=\"#p-automation\">Markaðsvöktun</a>",
       so_res:"→ svo fullyrðingarnar mínar séu sannreynanlegar",
       so_build:"→ svo ég geti smíðað það, ekki bara ráðlagt um það",
       so_biz:"→ svo ég skilji hvað þú raunverulega þarft",
@@ -521,7 +523,7 @@ t_raw:"Vefsíðugerð · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
       t_vakta:"Vefsmíði · Vaktalógík · Gagnavinnsla",n_vakta:"Vaktatafla",
       d_vakta:"Sjálfstætt verkfæri sem breytir starfsfólki, framboði og mönnunarreglum í sanngjarna vaktatöflu — tvítyngt, breytanlegt í vafra og GDPR-öruggt (sýnidæmi notar tilbúin nöfn).",
       view:"Prófaðu í beinni →",details:"Nánar sé óskað →",try_vakta:"Prófaðu í beinni →",
-      bg_note:"<span class='bg-note-label'>Bakgrunnurinn að baki verkunum</span>Að baki verkefnunum: <strong>MA í umhverfis- og auðlindafræði</strong> (Háskóli Íslands, 2025), þjóðar-vistspora- og lífgetureikningar í MySQL, og margra ára reynsla af að samræma sjálfbærnifræðslu.",
+
 
       contact_label:"Samband",contact_h:"Höfum samband.",
       contact_p:"Ertu með eitthvað á mótum sjálfbærni og hagkvæmni? Ég vil endilega heyra af því.",
@@ -560,6 +562,10 @@ t_raw:"Vefsíðugerð · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
     const io=new IntersectionObserver((ents)=>{ents.forEach(e=>{if(e.isIntersecting)show(e.target);});},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
     els.forEach(el=>io.observe(el));
     revealVisible();
+    // a card reached straight from a #link must not stay hidden
+    const showTarget=()=>{const t=location.hash&&document.querySelector(location.hash);if(t){t.classList.add('in');setTimeout(revealVisible,60);}};
+    showTarget();
+    window.addEventListener('hashchange',showTarget);
     window.addEventListener('scroll',revealVisible,{passive:true});
     window.addEventListener('hashchange',()=>setTimeout(revealVisible,60));
     setTimeout(()=>els.forEach(el=>el.classList.add('in')),2500);

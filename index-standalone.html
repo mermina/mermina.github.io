@@ -195,7 +195,7 @@
   .hero{text-align:left;display:block;padding:calc(var(--nav-h) + 34px) 0 40px}
   .hero-grid{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:center;animation:rise 1s ease both}
   .hero h1{font-size:clamp(1.9rem,4.1vw,3rem);margin:18px 0 0}
-  .hero p{margin:20px 0 0;max-width:none;font-size:clamp(1.15rem,2.1vw,1.5rem);line-height:1.5;color:rgba(255,255,255,.86);font-weight:300}
+  .hero p{margin:20px 0 0;max-width:none}
   .hero p strong{color:#fff;font-weight:500}
   .hero-btns{justify-content:flex-start}
   .hero .cv-link{justify-content:flex-start}
@@ -242,8 +242,8 @@
   <div class="hero-grid">
     <div class="hero-text">
       <div class="avail"><span class="dot"></span><span data-i18n="avail">Freelance and open to the right role</span></div>
-      <div class="eyebrow" data-i18n="eyebrow" style="margin-top:20px">Reykjav&iacute;k &middot; Iceland</div>
-      <h1 class="serif" data-i18n-html="h1">Marina <em>Ermina</em></h1>
+      <div class="eyebrow" data-i18n="eyebrow" style="margin-top:20px">Marina Ermina &middot; Reykjav&iacute;k</div>
+      <h1 class="serif" data-i18n-html="h1">I research, then I build &mdash;<br>so you do <em>more with less</em>.</h1>
       <p data-i18n-html="herosub">Data analyst and project manager, now building websites, automation and AI tools. Twenty years running work for international clients, two first-class Masters, and a habit that costs me projects: I check whether the claims hold up.</p>
       <div class="hero-btns">
         <a href="#examples" class="btn btn-solid" data-i18n="cta1">See my work</a>
@@ -291,7 +291,7 @@
     <p class="help-intro" data-i18n="help_intro">I also build fast, with AI-assisted development — it&rsquo;s how one person can ship this range of work, and it&rsquo;s the same principle as everything else here: more with less.</p>
     <div class="svc">
       <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s1_b">EcoCups · Love Raw Cake</span></div></div>
-      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s2_b">FarmBot · Market monitoring · Vaktatafla</span></div></div>
+      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s2_b">FarmBot · Market monitoring · Staff scheduler</span></div></div>
       <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability research</h3><p data-i18n="s3_d">Checking whether &quot;green&quot; claims actually hold up against the rules and the evidence — and measuring sustainability with indicators that stand up to scrutiny.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s3_b">Green Claims · EcoCups · Beyond GDP</span></div></div>
       <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s4_b">Beyond GDP · Market monitoring</span></div></div>
     </div>
@@ -349,7 +349,7 @@
         </div>
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_vakta">Automation · Data</div>
-          <h3 class="serif" data-i18n="n_vakta">Vaktatafla — staff scheduling</h3>
+          <h3 class="serif" data-i18n="n_vakta">Staff scheduler</h3>
           <p data-i18n="d_vakta">A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).</p>
           <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
           <div class="ex-links">
@@ -441,14 +441,14 @@
     en:{
       nav_work:"Work",nav_about:"About",nav_contact:"Contact",
       avail:"Freelance and open to the right role",
-      eyebrow:"Reykjavík · Iceland",
-      h1:"Marina <em>Ermina</em>",
+      eyebrow:"Marina Ermina · Reykjavík",
+      h1:"I research, then I build —<br>so you do <em>more with less</em>.",
       herosub:"Data analyst and project manager, now building websites, automation and AI tools. Twenty years running work for international clients, two first-class Masters, and a habit that costs me projects: I check whether the claims hold up.",
       cta1:"See my work",cta2:"Get in touch",
       cv:"Download CV (PDF)",langs_hero:"<span>Languages</span>English · Íslenska · Русский · Polski",pk_res:"Research",pv_res:"The research behind it",pp_res:"Two first-class Masters — Economics & Management, and Environment & Natural Resources — plus the National Footprint & Biocapacity Accounts, published and cited.",pk_build:"Building",pv_build:"I build for efficiency",pp_build:"Websites, impact calculators, voice automation and interactive dashboards — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.",pk_biz:"Business",pv_biz:"Business-focused and professional",pp_biz:"Twenty years in project management and client relations, in the UK and internationally — global brands, then coordinating EU-grant sustainability programmes.",help_intro:"I also build fast, with AI-assisted development — it’s how one person can ship this range of work, and it’s the same principle as everything else here: more with less.",cv_short:"CV",live:"Live",
       stack_label:"Built with",code:"Code \u2197",
 
-      built_label:"What I built",s1_b:"EcoCups · Love Raw Cake",s2_b:"FarmBot · Market monitoring · Vaktatafla",s3_b:"Green Claims · EcoCups · Beyond GDP",s4_b:"Beyond GDP · Market monitoring",
+      built_label:"What I built",s1_b:"EcoCups · Love Raw Cake",s2_b:"FarmBot · Market monitoring · Staff scheduler",s3_b:"Green Claims · EcoCups · Beyond GDP",s4_b:"Beyond GDP · Market monitoring",
       so_res:"→ so the claims I make are checkable",
       so_build:"→ so I can ship it, not just advise on it",
       so_biz:"→ so I understand what you actually need",
@@ -471,7 +471,7 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
       t_auto:"Automation build · Voice AI · Data pipeline",n_auto:"Automation — farm bot & market monitoring",
       d_auto:"Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic and files what it finds.",
       see_how:"See how it works →",
-      t_vakta:"Web-app build · Scheduling logic · Data handling",n_vakta:"Vaktatafla — staff scheduling",
+      t_vakta:"Web-app build · Scheduling logic · Data handling",n_vakta:"Staff scheduler",
       d_vakta:"A self-contained tool that turns staff, availability and coverage rules into a fair shift rota — bilingual, editable in the browser, and GDPR-safe (demo uses fictional names).",
       view:"Try it live →",details:"Details on request →",try_vakta:"Try it live →",
       bg_note:"<span class='bg-note-label'>The background behind the work</span>An <strong>MA in Environment &amp; Natural Resources</strong> (Háskóli Íslands, 2025), National Footprint &amp; Biocapacity accounts built in MySQL as Data Analyst at the International Ecological Footprint Learning Lab, and years coordinating EU-grant sustainability programmes.",
@@ -483,8 +483,8 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
     is:{
       nav_work:"Verk",nav_about:"Um mig",nav_contact:"Samband",
       avail:"Laus í verkefni og opin fyrir réttu stöðunni",
-      eyebrow:"Reykjavík · Ísland",
-      h1:"Marina <em>Ermina</em>",
+      eyebrow:"Marina Ermina · Reykjavík",
+      h1:"Ég rannsaka, svo smíða ég —<br>svo þú gerir <em>meira með minna</em>.",
       herosub:"Gagnagreinandi og verkefnastjóri sem smíðar nú vefsíður, sjálfvirkni og gervigreindarverkfæri. Tuttugu ár í verkefnum fyrir alþjóðlega viðskiptavini, tvær meistaragráður með fyrstu einkunn, og vani sem kostar mig verkefni: ég athuga hvort fullyrðingarnar standist.",
       cta1:"Sjá verkin mín",cta2:"Hafa samband",
       cv:"Sækja ferilskrá (PDF)",langs_hero:"<span>Tungumál</span>Enska · Íslenska · Rússneska · Pólska",pk_res:"Rannsóknir",pv_res:"Rannsóknin að baki",pp_res:"Tvær meistaragráður með fyrstu einkunn — hagfræði og stjórnun, og umhverfis- og auðlindafræði — auk þjóðar-vistspora- og lífgetureikninganna, birtra og vitnað í.",pk_build:"Smíði",pv_build:"Ég smíða fyrir hagkvæmni",pp_build:"Vefsíður, áhrifareiknivélar, raddsjálfvirkni og gagnvirk mælaborð — byggð með HTML, CSS, JavaScript, MySQL, Python, R og gervigreindarverkfærum.",pk_biz:"Viðskipti",pv_biz:"Viðskiptamiðuð og fagleg",pp_biz:"Tuttugu ár í verkefnastjórnun og viðskiptatengslum, í Bretlandi og á alþjóðavettvangi — alþjóðleg vörumerki, svo samræming ESB-styrktra sjálfbærniverkefna.",help_intro:"Ég smíða líka hratt — með gervigreindarstuddri þróun. Þannig getur einn einstaklingur skilað þessari breidd af verkefnum, og það er sama hugmyndin og allt annað hér: meira með minna.",cv_short:"Ferilskrá",live:"Í beinni",

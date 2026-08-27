@@ -60,6 +60,8 @@
   .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green-mid);margin-bottom:20px}
   .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.02em}
   .hero h1 em{color:var(--green-mid)}
+  .hero-tag{margin-top:14px;font-size:clamp(1.05rem,1.9vw,1.35rem);font-weight:400;color:rgba(255,255,255,.9);line-height:1.4}
+  .hero-tag em{color:var(--green-mid);font-style:italic}
   .hero p{margin:22px auto 0;max-width:500px;color:rgba(255,255,255,.72);font-size:clamp(1rem,1.6vw,1.15rem);font-weight:300}
   .hero-btns{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .btn{display:inline-block;text-decoration:none;font-weight:500;font-size:15px;padding:12px 26px;border-radius:99px;transition:.18s}
@@ -242,9 +244,10 @@
   <div class="hero-grid">
     <div class="hero-text">
       <div class="avail"><span class="dot"></span><span data-i18n="avail">Freelance and open to the right role</span></div>
-      <div class="eyebrow" data-i18n="eyebrow" style="margin-top:20px">Marina Ermina &middot; Reykjav&iacute;k</div>
-      <h1 class="serif" data-i18n-html="h1">I research, then I build &mdash;<br>so you do <em>more with less</em>.</h1>
-      <p data-i18n-html="herosub">Data analyst and project manager, now building websites, automation and AI tools. Twenty years running work for international clients, two first-class Masters, and a habit that costs me projects: I check whether the claims hold up.</p>
+      <div class="eyebrow" data-i18n="eyebrow" style="margin-top:20px">Reykjav&iacute;k &middot; Iceland</div>
+      <h1 class="serif" data-i18n-html="h1">Marina <em>Ermina</em></h1>
+      <div class="hero-tag" data-i18n-html="tagline">I research, then I build &mdash; so you do <em>more with less</em>.</div>
+      <p data-i18n-html="herosub">Twenty years in business and project management — I know where the time and money leak. Now I build the tools that stop it: websites, automation and dashboards, with the research to prove they work.</p>
       <div class="hero-btns">
         <a href="#examples" class="btn btn-solid" data-i18n="cta1">See my work</a>
         <a href="#contact" class="btn btn-ghost" data-i18n="cta2">Get in touch</a>
@@ -441,9 +444,10 @@
     en:{
       nav_work:"Work",nav_about:"About",nav_contact:"Contact",
       avail:"Freelance and open to the right role",
-      eyebrow:"Marina Ermina · Reykjavík",
-      h1:"I research, then I build —<br>so you do <em>more with less</em>.",
-      herosub:"Data analyst and project manager, now building websites, automation and AI tools. Twenty years running work for international clients, two first-class Masters, and a habit that costs me projects: I check whether the claims hold up.",
+      eyebrow:"Reykjavík · Iceland",
+      h1:"Marina <em>Ermina</em>",
+      herosub:"Twenty years in business and project management — I know where the time and money leak. Now I build the tools that stop it: websites, automation and dashboards, with the research to prove they work.",
+      tagline:"I research, then I build — so you do <em>more with less</em>.",
       cta1:"See my work",cta2:"Get in touch",
       cv:"Download CV (PDF)",langs_hero:"<span>Languages</span>English · Íslenska · Русский · Polski",pk_res:"Research",pv_res:"The research behind it",pp_res:"Two first-class Masters — Economics & Management, and Environment & Natural Resources — plus the National Footprint & Biocapacity Accounts, published and cited.",pk_build:"Building",pv_build:"I build for efficiency",pp_build:"Websites, impact calculators, voice automation and interactive dashboards — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.",pk_biz:"Business",pv_biz:"Business-focused and professional",pp_biz:"Twenty years in project management and client relations, in the UK and internationally — global brands, then coordinating EU-grant sustainability programmes.",help_intro:"I also build fast, with AI-assisted development — it’s how one person can ship this range of work, and it’s the same principle as everything else here: more with less.",cv_short:"CV",live:"Live",
       stack_label:"Built with",code:"Code \u2197",
@@ -483,9 +487,10 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
     is:{
       nav_work:"Verk",nav_about:"Um mig",nav_contact:"Samband",
       avail:"Laus í verkefni og opin fyrir réttu stöðunni",
-      eyebrow:"Marina Ermina · Reykjavík",
-      h1:"Ég rannsaka, svo smíða ég —<br>svo þú gerir <em>meira með minna</em>.",
-      herosub:"Gagnagreinandi og verkefnastjóri sem smíðar nú vefsíður, sjálfvirkni og gervigreindarverkfæri. Tuttugu ár í verkefnum fyrir alþjóðlega viðskiptavini, tvær meistaragráður með fyrstu einkunn, og vani sem kostar mig verkefni: ég athuga hvort fullyrðingarnar standist.",
+      eyebrow:"Reykjavík · Ísland",
+      h1:"Marina <em>Ermina</em>",
+      herosub:"Tuttugu ár í viðskiptum og verkefnastjórnun — ég veit hvar tíminn og peningarnir leka. Nú smíða ég verkfærin sem stöðva það: vefsíður, sjálfvirkni og mælaborð, með rannsóknum sem sanna að þau virki.",
+      tagline:"Ég rannsaka, svo smíða ég — svo þú gerir <em>meira með minna</em>.",
       cta1:"Sjá verkin mín",cta2:"Hafa samband",
       cv:"Sækja ferilskrá (PDF)",langs_hero:"<span>Tungumál</span>Enska · Íslenska · Rússneska · Pólska",pk_res:"Rannsóknir",pv_res:"Rannsóknin að baki",pp_res:"Tvær meistaragráður með fyrstu einkunn — hagfræði og stjórnun, og umhverfis- og auðlindafræði — auk þjóðar-vistspora- og lífgetureikninganna, birtra og vitnað í.",pk_build:"Smíði",pv_build:"Ég smíða fyrir hagkvæmni",pp_build:"Vefsíður, áhrifareiknivélar, raddsjálfvirkni og gagnvirk mælaborð — byggð með HTML, CSS, JavaScript, MySQL, Python, R og gervigreindarverkfærum.",pk_biz:"Viðskipti",pv_biz:"Viðskiptamiðuð og fagleg",pp_biz:"Tuttugu ár í verkefnastjórnun og viðskiptatengslum, í Bretlandi og á alþjóðavettvangi — alþjóðleg vörumerki, svo samræming ESB-styrktra sjálfbærniverkefna.",help_intro:"Ég smíða líka hratt — með gervigreindarstuddri þróun. Þannig getur einn einstaklingur skilað þessari breidd af verkefnum, og það er sama hugmyndin og allt annað hér: meira með minna.",cv_short:"Ferilskrá",live:"Í beinni",
       stack_label:"Byggt með",code:"Kóði \u2197",

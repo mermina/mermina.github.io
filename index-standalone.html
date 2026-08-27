@@ -89,9 +89,11 @@
   /* services */
   .help{background:var(--cream);border-top:1px solid var(--line)}
   .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
-  .svc-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+  .svc-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px;display:flex;flex-direction:column}
   .svc-ic{width:36px;height:36px;border-radius:10px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
   .svc-card h3{font-size:1.05rem;margin-bottom:6px}
+  .svc-built{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.5}
+  .svc-built .lbl{display:block;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
   .svc-card p{color:var(--muted);font-size:.88rem;line-height:1.55}
 
   /* examples */
@@ -291,10 +293,10 @@
     <h2 class="serif" data-i18n="help_h">Four ways I can help.</h2>
     <p class="help-intro" data-i18n="help_intro">I also build fast, with AI-assisted development — it&rsquo;s how one person can ship this range of work, and it&rsquo;s the same principle as everything else here: more with less.</p>
     <div class="svc">
-      <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p></div>
-      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p></div>
-      <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability &amp; green-claims</h3><p data-i18n="s3_d">Checking whether "green" claims actually hold up against the rules and the evidence — before they become a problem.</p></div>
-      <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p></div>
+      <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s1_b">EcoCups · Love Raw Cake</span></div></div>
+      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s2_b">FarmBot · Market monitoring · Vaktatafla</span></div></div>
+      <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability &amp; green-claims</h3><p data-i18n="s3_d">Checking whether "green" claims actually hold up against the rules and the evidence — before they become a problem.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s3_b">Green Claims Studio · EcoCups</span></div></div>
+      <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n="s4_b">Beyond GDP · Market monitoring</span></div></div>
     </div>
   </div>
 </section>
@@ -450,6 +452,7 @@
       stack_label:"Built with",code:"Code \u2197",
 
       tb_label:"Past clients & partners",tb_names:"Unilever · AstraZeneca · BP · Oracle · Marriott · Hilton · Radisson · American Express",
+      built_label:"What I built",s1_b:"EcoCups · Love Raw Cake",s2_b:"FarmBot · Market monitoring · Vaktatafla",s3_b:"Green Claims Studio · EcoCups",s4_b:"Beyond GDP · Market monitoring",
       help_label:"What I can help with",help_h:"Four ways I can help.",
       s1_t:"Websites",s1_d:"Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.",
       s2_t:"Automation",s2_d:"Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.",
@@ -489,6 +492,7 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
       stack_label:"Byggt með",code:"Kóði \u2197",
 
       tb_label:"Fyrri viðskiptavinir og samstarfsaðilar",tb_names:"Unilever · AstraZeneca · BP · Oracle · Marriott · Hilton · Radisson · American Express",
+      built_label:"Það sem ég smíðaði",s1_b:"EcoCups · Love Raw Cake",s2_b:"FarmBot · Markaðsvöktun · Vaktatafla",s3_b:"Green Claims Studio · EcoCups",s4_b:"Handan VLF · Markaðsvöktun",
       help_label:"Það sem ég get aðstoðað með",help_h:"Fjórar leiðir til að hjálpa.",
       s1_t:"Vefsíður",s1_d:"Tvítyngdar, sérsmíðaðar vefsíður fyrir lítil fyrirtæki og verkefni — frá fyrsta samtali við viðskiptavin að lifandi síðu sem virkar á öllum skjám.",
       s2_t:"Sjálfvirkni",s2_d:"Verkfæri sem vinna endurtekna vinnu fyrir þig — tal eða gögn í töflureikni, vaktaskipulag og botta sem keyra sjálfir.",

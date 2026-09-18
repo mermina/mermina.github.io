@@ -35,7 +35,7 @@
   .nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease}
   .nav-in{max-width:1080px;margin:0 auto;height:var(--nav-h);padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
   .brand{font-family:'DM Serif Display',serif;font-size:1.18rem;letter-spacing:.01em;text-decoration:none;color:#fff;transition:color .3s;white-space:nowrap}
-  .brand .mk{color:var(--green-mid)}
+  .brand .mk{color:var(--green-mid);font-style:italic}
   .nav.solid{background:rgba(246,244,238,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav.solid .brand{color:var(--ink)}
   .nav-right{display:flex;align-items:center;gap:24px}
@@ -95,13 +95,16 @@
   .svc-built a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(23,32,27,.22);transition:.15s}
   .svc-built a:hover{color:var(--green);border-bottom-color:var(--green)}
   .ex-card{scroll-margin-top:88px}
+  .soon-shot{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f2f0e9,#f2f0e9 12px,#eceadf 12px,#eceadf 24px);color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .ex-card.soon{border-style:dashed}
+  .trust{scroll-margin-top:var(--nav-h)}
   .ex-card:target{box-shadow:0 0 0 2px var(--green-mid),0 18px 44px rgba(13,37,26,.13)}
   .svc-built .lbl{display:block;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
   .svc-card p{color:var(--muted);font-size:.88rem;line-height:1.55}
 
   /* examples */
   .examples{background:#fff;border-top:1px solid var(--line)}
-  .ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+  .ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
   .ex-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--cream);display:flex;flex-direction:column;transition:.2s}
   .ex-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(13,37,26,.1)}
 
@@ -124,7 +127,7 @@
   .ex-tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
   .ex-body h3{font-size:1.4rem;margin:8px 0 6px}
   .ex-result{font-weight:600;font-size:1.06rem;line-height:1.32;color:var(--forest);margin:2px 0 10px}
-  .ex-body p{color:var(--muted);font-size:.97rem;flex:1}
+  .ex-body p{color:var(--muted);font-size:.88rem;line-height:1.55;flex:1}
   .ex-link{margin-top:16px;font-weight:600;font-size:14px;color:var(--green);text-decoration:none;align-self:flex-start}
   .ex-stack{margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.5}
   .ex-stack .lbl{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-right:7px}
@@ -215,6 +218,177 @@
     .hero-btns,.hero .cv-link{justify-content:center}
     .trust-item{align-items:center;text-align:center}
   }
+
+  /* ─────────────────────────────────────────────────────────────
+     Ported from the v7 exploration — ONLY these two behaviours:
+       1. the pillar labels are chips that change colour when you point at them
+       2. cards take a green wash when you point at them
+     Everything else on this page is the original design, untouched.
+     ───────────────────────────────────────────────────────────── */
+
+  /* 1 — pillar label chips, on the dark forest band.
+     Geometry is pinned (fixed height, nowrap, line-height 1, span child) so
+     only the COLOURS ever change — the chip cannot resize or drop its text. */
+  .trust-k{
+    display:inline-flex;align-items:center;justify-content:center;
+    box-sizing:border-box;
+    height:30px;min-height:30px;max-height:30px;overflow:hidden;
+    white-space:nowrap;line-height:1;
+    padding:0 13px;margin:0;
+    font-family:inherit;font-size:11px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;
+    border:1px solid rgba(127,201,166,.28);
+    border-radius:15px;
+    background-color:rgba(127,201,166,.10);
+    color:var(--green-mid);
+    cursor:pointer;
+  }
+  .trust-k > span{display:block;line-height:1}
+  .trust-item:hover .trust-k,
+  .trust-k:hover{
+    background-color:rgba(127,201,166,.17);
+    border-color:rgba(127,201,166,.50);
+    color:#d3f2e2;
+  }
+  .trust-k[aria-pressed="true"]{
+    background-color:rgba(127,201,166,.26);
+    border-color:var(--green-mid);
+    color:#d3f2e2;
+  }
+  .trust-k:focus-visible{outline:2px solid var(--green-mid);outline-offset:3px}
+
+  /* the whole pillar responds, not just the chip */
+  .trust-item{
+    position:relative;isolation:isolate;
+    padding:16px 18px 18px;border-radius:14px;
+    transition:background-color .3s ease;
+  }
+  .trust-item::before{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:64%;
+    border-radius:inherit;
+    background:radial-gradient(70% 100% at 50% 100%, rgba(127,201,166,.20) 0%, rgba(127,201,166,0) 72%);
+    opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:-1;
+  }
+  .trust-item:hover{background-color:rgba(127,201,166,.055)}
+  .trust-item.is-active{background-color:rgba(127,201,166,.075)}
+  .trust-item:hover::before,
+  .trust-item.is-active::before{opacity:1}
+
+  /* 2 — the light cards take a green wash when pointed at.
+     The existing lift and shadow on .ex-card are kept; the transition is
+     re-declared so adding colour does not drop transform/box-shadow. */
+  .svc-card,.ex-card{position:relative;isolation:isolate}
+  .svc-card::before,.ex-card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;
+    background:radial-gradient(70% 100% at 50% 100%, rgba(47,125,91,.14) 0%, rgba(47,125,91,0) 72%);
+    opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:-1;
+  }
+  .svc-card:hover::before,.ex-card:hover::before{opacity:1}
+  .svc-card{transition:background-color .3s ease,border-color .3s ease}
+  .svc-card:hover{background-color:#fbfdfb;border-color:rgba(47,125,91,.34)}
+  .ex-card{transition:transform .2s,box-shadow .2s,border-color .3s ease}
+  .ex-card:hover{border-color:rgba(47,125,91,.30)}
+
+  /* ── service symbols: line icons instead of emoji ─────────────
+     The tile itself is unchanged — same 36px forest square, same radius.
+     Only what sits inside it changed. Emoji render differently on every
+     operating system and never match the page's type; a line icon is drawn
+     by the browser, inherits colour, and stays consistent everywhere.
+     `stroke:currentColor` means the hover state needs no second icon set. */
+  /* Matching the exploration exactly: a light green-tinted CIRCLE with a green
+     icon at rest, filling solid green with a cream icon when you point at the
+     card. (Replaces the original's dark forest square.) Radius is exactly half
+     the box rather than a large round number, so the browser never clamps it. */
+  .svc-ic{
+    width:36px;height:36px;
+    border-radius:18px;
+    box-sizing:border-box;
+    border:1px solid rgba(47,125,91,.30);
+    background-color:rgba(47,125,91,.09);
+    background-image:none;
+    color:var(--green);
+    transition:background-color .3s ease,border-color .3s ease,color .3s ease;
+  }
+  .svc-ic svg{
+    width:18px;height:18px;
+    fill:none;stroke:currentColor;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .svc-card:hover .svc-ic{
+    background-color:var(--green);
+    border-color:var(--green);
+    color:var(--cream);
+  }
+
+  /* ── icon and heading on one line ──────────────────────────────
+     Sized from measurement, not guesswork. In DM Serif Display the longest
+     heading — "Sustainability research" — is 10.18em wide (the Icelandic
+     "Sjálfbærnirannsóknir" is 9.54em, so English is the binding constraint).
+     A 4-across card gives 210px of content; minus a 30px icon and a 10px gap
+     that leaves 170px, so the heading has to sit at about .98rem to fit with
+     a little room to spare. */
+  .svc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .svc-head .svc-ic{flex:0 0 auto;margin-bottom:0;width:30px;height:30px;border-radius:15px}
+  .svc-head .svc-ic svg{width:15px;height:15px}
+  .svc-card h3{margin:0;font-size:.98rem;white-space:nowrap}
+
+  /* The 4-across columns must never be narrower than they are at the 1080px
+     wrap, or the heading is squeezed and overflows. So services drop to
+     2-across below 1128px (1080 + the wrap's 24px padding either side)
+     instead of at 900px. Below 520px they stack, as before. */
+  @media(max-width:1128px){.svc{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.svc{grid-template-columns:1fr}}
+
+  /* ── 18 Sep: availability badge + CV link live in the nav row on desktop.
+     Below 900px the nav has no room for them, so the hero keeps its own
+     copies and the nav ones step aside. Only one of each pair is ever
+     visible, and both carry the same data-i18n keys. ── */
+  .nav-avail{margin-bottom:0;font-size:12px;padding:5px 13px}
+  .nav.solid .nav-avail{color:var(--ink);background:rgba(45,106,79,.09);border-color:rgba(45,106,79,.3)}
+  .nav-cv{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.72);text-decoration:none;white-space:nowrap;transition:color .18s}
+  .nav-cv:hover{color:#fff}
+  .nav-cv svg{width:14px;height:14px}
+  .nav.solid .nav-cv{color:var(--muted)}
+  .nav.solid .nav-cv:hover{color:var(--forest)}
+  .nav-in{gap:14px}
+  .nav-right{gap:20px}
+  .nav-avail{white-space:nowrap}
+  .nav-links a{white-space:nowrap}
+  /* The Icelandic badge is twice the width of the English one, so the
+     hand-back points are set where the LONGER label still fits. */
+  /* Pillars: three equal fractions instead of flex items with a max-width.
+     They were already equal, but as flex items they could wrap unevenly if a
+     heading grew; grid makes that impossible. max-width raised 1000 -> 1060 so
+     the row's left and right edges line up with the hero text above it. */
+  /* Middle column 25% wider: the Building copy is the longest of the three and
+     ran to six lines at equal widths. 1fr 1.12fr 1fr is the narrowest widening
+     that still gives five lines in both languages from 1128px up, and it ends
+     the paragraph on "Python, R and AI tooling." instead of orphaning a word. */
+  .trust-in{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:30px 44px;align-items:stretch;max-width:1060px}
+  .trust-item{max-width:none;flex:none}
+  /* The three paragraphs are different lengths, so the green "so ..." lines
+     used to sit at different heights. Pushing them to the bottom of an
+     equal-height column levels them without making any column wider. */
+  .trust-so{margin-top:auto;padding-top:10px}
+  @media(max-width:820px){.trust-in{grid-template-columns:1fr}}
+  @media(max-width:1127px) and (min-width:821px){.trust-in{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:1000px) and (min-width:761px){.ex-grid{grid-template-columns:1fr 1fr}}
+
+  .nav-status{display:flex;align-items:center;gap:13px}
+  /* The pair travels together: the CV link sits right after the badge.
+     Both hand back to the hero below 1200px, where the Icelandic badge
+     (about twice the English width) stops fitting beside the nav links. */
+  @media(min-width:1201px){.hero-avail,.hero-cv{display:none}}
+  @media(max-width:1200px){.nav-status{display:none}}
+
+  /* Business pillar: "Business-focused and professional" is the longest of the
+     three headings, so it wrapped while its siblings sat on one line. The
+     pillar headings now scale with the column width and the first one is
+     held to a single line. Below 820px the pillars stack and wrapping is fine. */
+  @media(min-width:821px){
+    .trust-v{font-size:clamp(.95rem,1.85vw,1.05rem)}
+    .trust-item:first-child .trust-v{white-space:nowrap}
+  }
 </style>
 </head>
 <body>
@@ -223,10 +397,18 @@
 <nav class="nav" id="nav">
   <div class="nav-in">
     <a href="#" class="brand">Marina <span class="mk">Ermina</span></a>
+    <div class="nav-status">
+      <div class="avail nav-avail"><span class="dot"></span><span data-i18n="avail">Freelance and open to the right role</span></div>
+      <a href="cv/" class="nav-cv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="cv">View my CV</span>
+      </a>
+    </div>
     <div class="nav-right">
       <div class="nav-links">
+        <a href="#" data-i18n="nav_about">About</a>
+        <a href="#help" data-i18n="nav_focus">Focus</a>
         <a href="#examples" data-i18n="nav_work">Work</a>
-        <a href="#about" data-i18n="nav_about">About</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
       </div>
       <div id="lang" class="lang">
@@ -242,16 +424,16 @@
   <canvas id="bg"></canvas>
   <div class="hero-grid">
     <div class="hero-text">
-      <div class="avail"><span class="dot"></span><span data-i18n="avail">Freelance and open to the right role</span></div>
+      <div class="avail hero-avail"><span class="dot"></span><span data-i18n="avail">Freelance and open to the right role</span></div>
       <div class="eyebrow" data-i18n="eyebrow" style="margin-top:20px">Reykjav&iacute;k &middot; Iceland</div>
       <h1 class="serif" data-i18n-html="h1">Marina <em>Ermina</em></h1>
       <div class="hero-tag" data-i18n-html="tagline">I research, then I build &mdash; so you do <em>more with less</em>.</div>
-      <p data-i18n-html="herosub">Data analyst and project manager. Twenty years in business — I know where the time and money leak. Now I build the tools that stop it: websites, automation and dashboards, with the research to prove they work.</p>
+      <p data-i18n-html="herosub">Data analyst and project manager with AI proficiency. Twenty years across business and sustainability, so I know where the time and money leak. Now I build the tools that improve it: websites, automation and dashboards, with the research to prove they work.</p>
       <div class="hero-btns">
         <a href="#examples" class="btn btn-solid" data-i18n="cta1">See my work</a>
         <a href="#contact" class="btn btn-ghost" data-i18n="cta2">Get in touch</a>
       </div>
-      <a href="cv/" class="cv-link">
+      <a href="cv/" class="cv-link hero-cv">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         <span data-i18n="cv">View my CV</span>
       </a>
@@ -265,19 +447,19 @@
 <div class="trust" id="about">
   <div class="trust-in">
     <div class="trust-item">
-      <div class="trust-k" data-i18n="pk_biz">Business</div>
+      <button class="trust-k" type="button" aria-pressed="false"><span data-i18n="pk_biz">Business</span></button>
       <div class="trust-v" data-i18n="pv_biz">Business-focused and professional</div>
       <div class="trust-p" data-i18n="pp_biz">Twenty years in project management and client relations, in the UK and internationally &mdash; global brands, then coordinating EU-grant sustainability programmes.</div>
       <div class="trust-so" data-i18n="so_biz">&rarr; so I understand what you actually need</div>
     </div>
     <div class="trust-item">
-      <div class="trust-k" data-i18n="pk_build">Building</div>
+      <button class="trust-k" type="button" aria-pressed="false"><span data-i18n="pk_build">Building</span></button>
       <div class="trust-v" data-i18n="pv_build">I build for efficiency</div>
-      <div class="trust-p" data-i18n="pp_build">Websites, impact calculators, dashboards and automation — from a voice bot to scheduled web research — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.</div>
+      <div class="trust-p" data-i18n="pp_build">Websites, dashboards, tools and automation — an impact calculator, a green-claims checker, a staff scheduler, a voice bot — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.</div>
       <div class="trust-so" data-i18n="so_build">&rarr; so I can ship it, not just advise on it</div>
     </div>
     <div class="trust-item">
-      <div class="trust-k" data-i18n="pk_res">Research</div>
+      <button class="trust-k" type="button" aria-pressed="false"><span data-i18n="pk_res">Research</span></button>
       <div class="trust-v" data-i18n="pv_res">The research behind it</div>
       <div class="trust-p" data-i18n="pp_res">Two first-class Masters — Economics &amp; Management, and Environment &amp; Natural Resources — plus the National Footprint &amp; Biocapacity Accounts, published and cited.</div>
       <div class="trust-so" data-i18n="so_res">&rarr; so the claims I make are checkable</div>
@@ -288,14 +470,14 @@
 <!-- WHAT I CAN HELP WITH -->
 <section class="help" id="help">
   <div class="wrap">
-    <div class="label" data-i18n="help_label">What I can help with</div>
-    <h2 class="serif" data-i18n="help_h">Four ways I can help.</h2>
-    <p class="help-intro" data-i18n="help_intro">I also build fast, with AI-assisted development — it&rsquo;s how one person can ship this range of work, and it&rsquo;s the same principle as everything else here: more with less.</p>
+    <div class="label" data-i18n="help_label">Four focuses</div>
+    <h2 class="serif" data-i18n="help_h">How I can help</h2>
+    <p class="help-intro" data-i18n="help_intro">I build fast, with AI proficiency — it&rsquo;s how one person can ship this range of work and offer high value at the best price, and it&rsquo;s the same principle as everything else here: more with less.</p>
     <div class="svc">
-      <div class="svc-card"><div class="svc-ic">🌐</div><h3 class="serif" data-i18n="s1_t">Websites</h3><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s1_b"><a href="#p-ecocups">EcoCups</a> · <a href="#p-rawcake">Love Raw Cake</a></span></div></div>
-      <div class="svc-card"><div class="svc-ic">⚙️</div><h3 class="serif" data-i18n="s2_t">Automation</h3><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s2_b"><a href="#p-automation">FarmBot</a> · <a href="#p-automation">Market monitoring</a> · <a href="#p-staff">Staff scheduler</a></span></div></div>
-      <div class="svc-card"><div class="svc-ic">🌱</div><h3 class="serif" data-i18n="s3_t">Sustainability research</h3><p data-i18n="s3_d">Checking whether &quot;green&quot; claims actually hold up against the rules and the evidence — and measuring sustainability with indicators that stand up to scrutiny.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s3_b"><a href="#p-greenclaims">Green Claims</a> · <a href="#p-ecocups">EcoCups</a> · <a href="#p-beyondgdp">Beyond GDP</a></span></div></div>
-      <div class="svc-card"><div class="svc-ic">📊</div><h3 class="serif" data-i18n="s4_t">Data analysis</h3><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s4_b"><a href="#p-beyondgdp">Beyond GDP</a> · <a href="#p-automation">Market monitoring</a></span></div></div>
+      <div class="svc-card"><div class="svc-head"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 3.6 9A14 14 0 0 1 12 21a14 14 0 0 1-3.6-9A14 14 0 0 1 12 3z"/></svg></div><h3 class="serif" data-i18n="s1_t">Websites</h3></div><p data-i18n="s1_d">Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s1_b"><a href="#p-ecocups">EcoCups</a> · <a href="#p-rawcake">Love Raw Cake</a></span></div></div>
+      <div class="svc-card"><div class="svc-head"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20v-6"/><path d="M12 20V4"/><path d="M18 20v-9"/><path d="M3 20h18"/></svg></div><h3 class="serif" data-i18n="s4_t">Data analysis</h3></div><p data-i18n="s4_d">Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R, delivered as dashboards you can read at a glance.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s4_b"><a href="#p-beyondgdp">Beyond GDP</a> · <a href="#p-automation">Market monitoring</a></span></div></div>
+      <div class="svc-card"><div class="svc-head"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></svg></div><h3 class="serif" data-i18n="s3_t">Sustainability research</h3></div><p data-i18n="s3_d">Checking whether &quot;green&quot; claims actually hold up against the rules and the evidence — and measuring sustainability with indicators that stand up to scrutiny.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s3_b"><a href="#p-greenclaims">Green Claims</a> · <a href="#p-ecocups">EcoCups</a> · <a href="#p-beyondgdp">Beyond GDP</a></span></div></div>
+      <div class="svc-card"><div class="svc-head"><div class="svc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="17 2 21 6 17 10"/><path d="M3 12V10a4 4 0 0 1 4-4h14"/><polyline points="7 22 3 18 7 14"/><path d="M21 12v2a4 4 0 0 1-4 4H3"/></svg></div><h3 class="serif" data-i18n="s2_t">Automation</h3></div><p data-i18n="s2_d">Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.</p><div class="svc-built"><span class="lbl" data-i18n="built_label">What I built</span><span data-i18n-html="s2_b"><a href="#p-automation">FarmBot</a> · <a href="#p-automation">Market monitoring</a> · <a href="#p-staff">Staff scheduler</a></span></div></div>
     </div>
   </div>
 </section>
@@ -303,8 +485,9 @@
 <!-- EXAMPLES -->
 <section class="examples" id="examples">
   <div class="wrap">
-    <div class="label" data-i18n="ex_label">Examples</div>
-    <h2 class="serif" data-i18n="ex_h">The work behind it.</h2>
+    <div class="label" data-i18n="ex_label">Work examples</div>
+    <h2 class="serif" data-i18n="ex_h">The work behind it</h2>
+    <p class="help-intro" data-i18n="ex_sub">All of it is my own work, built to the same standard whether or not it shipped &mdash; the ones marked live are open to anyone, the rest run privately or are still in progress.</p>
     <div class="ex-grid">
 
       <div class="ex-card" id="p-ecocups">
@@ -316,7 +499,7 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_ecocups">Website · Sustainability · Research</div>
           <h3 class="serif">EcoCups</h3>
-          <p data-i18n="d_ecocups">A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. The build and the diligence, together.</p>
+          <p data-i18n="d_ecocups">A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. My sustainability research spared my client a risky deal, and he thanked me for it. The build and the diligence, together.</p>
           <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
           <div class="ex-links">
   <a class="ex-link" href="https://mermina.github.io/ecocups/" target="_blank" rel="noopener" data-i18n="view">Try it live →</a>
@@ -333,7 +516,7 @@
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_greenclaims">Sustainability · Green-claims · My own venture</div>
           <h3 class="serif" data-i18n="n_greenclaims">Green Claims</h3>
-          <p data-i18n="d_greenclaims">My own service and tool. It flags risky &ldquo;green&rdquo; wording, rewrites it to comply with the EU rules landing September 2026, and turns real certificates into machine-readable JSON-LD — the markup Google and AI assistants read to verify a credential.</p>
+          <p data-i18n="d_greenclaims">My own experimental project. It flags risky &ldquo;green&rdquo; wording, rewrites it to comply with the EU rules landing September 2026, and turns real certificates into machine-readable JSON-LD — the markup Google and AI assistants read to verify a credential.</p>
           <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
           <div class="ex-links">
   <a class="ex-link" href="https://mermina.github.io/green-claims-studio/two-pass-demo.html" target="_blank" rel="noopener" data-i18n="try_gc">Try it live →</a>
@@ -349,7 +532,7 @@
         </div>
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_wise">Data analysis · Sustainability · Research</div>
-          <h3 class="serif" data-i18n="n_wise">Beyond GDP &mdash; Nordic wellbeing &amp; footprint</h3>
+          <h3 class="serif" data-i18n="n_wise">Beyond GDP in Nordics</h3>
           <p data-i18n="d_wise">My own research as an interactive dashboard. Three &ldquo;beyond-GDP&rdquo; measures of wellbeing — HDI, the Social Progress Index and the SDG Index — set against the Ecological Footprint and Biocapacity accounts I compiled, for the five Nordic countries, 2000–2022.</p>
           <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>MySQL, Python, R, JavaScript</div>
           <div class="ex-links">
@@ -365,12 +548,45 @@
           <div class="frame-shot"><img src="shot-rawcake.jpg" alt="Love Raw Cake website — handmade raw cakes in Reykjavík" loading="lazy"></div>
         </div>
         <div class="ex-body">
-          <div class="ex-tag" data-i18n="t_raw">Website · Client work</div>
+          <div class="ex-tag" data-i18n="t_raw">Website build &middot; Photo editing &middot; Client project</div>
           <h3 class="serif" data-i18n="n_raw">Love Raw Cake</h3>
           <p data-i18n="d_raw">A bilingual one-page site for a Reykjavík raw-cake maker, hand-coded and mobile-first. No shopping cart by design — orders come through direct contact. My first client engagement run start to finish by me.</p>
           <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
           <div class="ex-links">
   <a class="ex-link" href="https://mermina.github.io/love-raw-cake/" target="_blank" rel="noopener" data-i18n="view">Try it live &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card" id="p-greenwellbeing">
+        <div class="frame">
+          <span class="live-badge"><span class="d"></span><span data-i18n="live">Live</span></span>
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">greenwellbeing.org</span></div>
+          <div class="frame-shot"><img src="shot-greenwellbeing.jpg" alt="Green Wellbeing website — Icelandic public-benefit organisation" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_gw">Website build &middot; Bilingual &middot; NGO project</div>
+          <h3 class="serif" data-i18n="n_gw">Green Wellbeing</h3>
+          <p data-i18n="d_gw">The site for an Icelandic public-benefit organisation running Climate Caf&eacute;s and environmental education. One page, English and &Iacute;slenska from the same build, on its own domain.</p>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://greenwellbeing.org/" target="_blank" rel="noopener" data-i18n="view">Try it live &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card" id="p-launchpad">
+        <div class="frame">
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">launchpadfinland.github.io</span></div>
+          <div class="frame-shot"><img src="shot-launchpad.jpg" alt="Launch Pad Finland website — non-profit in the Kainuu region" loading="lazy"></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_lpf">Website build &middot; Bilingual &middot; Client project</div>
+          <h3 class="serif" data-i18n="n_lpf">Launch Pad Finland</h3>
+          <p data-i18n="d_lpf">A one-page site for a Finnish non-profit in the Kainuu region &mdash; Finnish and English from the same build. In review with the client, and kept out of search until they sign it off.</p>
+          <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>HTML, CSS, JavaScript</div>
+          <div class="ex-links">
+  <a class="ex-link" href="https://launchpadfinland.github.io/" target="_blank" rel="noopener" data-i18n="view">Try it live &rarr;</a>
           </div>
         </div>
       </div>
@@ -399,7 +615,7 @@
         </div>
         <div class="ex-body">
           <div class="ex-tag" data-i18n="t_auto">Automation · Python · AI</div>
-          <h3 class="serif" data-i18n="n_auto">Automation &mdash; farm bot &amp; market monitoring</h3>
+          <h3 class="serif" data-i18n="n_auto">Automation</h3>
           <p data-i18n="d_auto">Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic and files what it finds.</p>
           <div class="ex-stack"><span class="lbl" data-i18n="stack_label">Built with</span>Python, Whisper, Cloud Run, Sheets API</div>
           <div class="ex-links">
@@ -407,7 +623,19 @@
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="ex-card soon" id="p-soon">
+        <div class="frame">
+          <div class="frame-bar"><span class="dots"><i></i><i></i><i></i></span><span class="frame-url">&nbsp;</span></div>
+          <div class="frame-shot soon-shot"><span data-i18n="soon_badge">Coming soon</span></div>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag" data-i18n="t_soon">Next up</div>
+          <h3 class="serif" data-i18n="n_soon">Coming soon</h3>
+          <p data-i18n="d_soon">A new build is in progress. It will appear here once it is live.</p>
+        </div>
+      </div>
+</div>
   </div>
 </section>
 
@@ -415,9 +643,9 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="label" style="color:var(--green-mid)" data-i18n="contact_label">Contact</div>
-    <h2 class="serif" data-i18n="contact_h">Let's talk.</h2>
+    <h2 class="serif" data-i18n="contact_h">Let's talk</h2>
     <p data-i18n="contact_p">Working on something at the meeting point of sustainability and efficiency? I'd love to hear about it.</p>
-    <a class="contact-mail" href="mailto:me.mermina@gmail.com">me.mermina@gmail.com</a>
+    <a class="contact-mail" href="mailto:me.ermina@icloud.com">me.ermina@icloud.com</a>
     <div class="contact-links">
       <a href="https://www.linkedin.com/in/marina-ermina-ba9a1012/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/mermina" target="_blank" rel="noopener">GitHub</a>
@@ -434,37 +662,37 @@
 <script>
   const I18N={
     en:{
-      nav_work:"Work",nav_about:"About",nav_contact:"Contact",
+      nav_work:"Work",nav_focus:"Focus",nav_about:"About",nav_contact:"Contact",
       avail:"Freelance and open to the right role",
       eyebrow:"Reykjavík · Iceland",
       h1:"Marina <em>Ermina</em>",
-      herosub:"Data analyst and project manager. Twenty years in business — I know where the time and money leak. Now I build the tools that stop it: websites, automation and dashboards, with the research to prove they work.",
+      herosub:"Data analyst and project manager with AI proficiency. Twenty years across business and sustainability, so I know where the time and money leak. Now I build the tools that improve it: websites, automation and dashboards, with the research to prove they work.",
       tagline:"I research, then I build — so you do <em>more with less</em>.",
       cta1:"See my work",cta2:"Get in touch",
-      cv:"View my CV",langs_hero:"<span>Languages</span>English · Íslenska · Русский · Polski",pk_res:"Research",pv_res:"The research behind it",pp_res:"Two first-class Masters — Economics & Management, and Environment & Natural Resources — plus the National Footprint & Biocapacity Accounts, published and cited.",pk_build:"Building",pv_build:"I build for efficiency",pp_build:"Websites, impact calculators, dashboards and automation — from a voice bot to scheduled web research — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.",pk_biz:"Business",pv_biz:"Business-focused and professional",pp_biz:"Twenty years in project management and client relations, in the UK and internationally — global brands, then coordinating EU-grant sustainability programmes.",help_intro:"I also build fast, with AI-assisted development — it’s how one person can ship this range of work, and it’s the same principle as everything else here: more with less.",cv_short:"CV",live:"Live",
+      cv:"View my CV",langs_hero:"<span>Languages</span>English · Íslenska · Русский · Polski",pk_res:"Research",pv_res:"The research behind it",pp_res:"Two first-class Masters — Economics & Management, and Environment & Natural Resources — plus the National Footprint & Biocapacity Accounts, published and cited.",pk_build:"Building",pv_build:"I build for efficiency",pp_build:"Websites, dashboards, tools and automation — an impact calculator, a green-claims checker, a staff scheduler, a voice bot — built with HTML, CSS, JavaScript, MySQL, Python, R and AI tooling.",pk_biz:"Business",pv_biz:"Business-focused and professional",pp_biz:"Twenty years in project management and client relations, in the UK and internationally — global brands, then coordinating EU-grant sustainability programmes.",help_intro:"I build fast, with AI proficiency — it’s how one person can ship this range of work and offer high value at the best price, and it’s the same principle as everything else here: more with less.",cv_short:"CV",live:"Live",
       stack_label:"Built with",
 
       built_label:"What I built",s1_b:"<a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-rawcake\">Love Raw Cake</a>",s2_b:"<a href=\"#p-automation\">FarmBot</a> · <a href=\"#p-automation\">Market monitoring</a> · <a href=\"#p-staff\">Staff scheduler</a>",s3_b:"<a href=\"#p-greenclaims\">Green Claims</a> · <a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-beyondgdp\">Beyond GDP</a>",s4_b:"<a href=\"#p-beyondgdp\">Beyond GDP</a> · <a href=\"#p-automation\">Market monitoring</a>",
       so_res:"→ so the claims I make are checkable",
       so_build:"→ so I can ship it, not just advise on it",
       so_biz:"→ so I understand what you actually need",
-      help_label:"What I can help with",help_h:"Four ways I can help.",
+      help_label:"Four focuses",help_h:"How I can help",
       s1_t:"Websites",s1_d:"Bilingual, custom-built websites for small businesses and projects — from the first client conversation to a live, responsive site.",
       s2_t:"Automation",s2_d:"Tools that do the repetitive work for you — voice or data into spreadsheets, scheduling, and bots that run on their own.",
       s3_t:"Sustainability research",s3_d:"Checking whether \"green\" claims actually hold up against the rules and the evidence — and measuring sustainability with indicators that stand up to scrutiny.",
-      s4_t:"Data analysis",s4_d:"Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R.",
-      ex_label:"Examples",ex_h:"The work behind it.",
+      s4_t:"Data analysis",s4_d:"Turning messy data into clear answers — cleaning, analysis and interpretation with MySQL, Python and R, delivered as dashboards you can read at a glance.",
+      ex_label:"Work examples",ex_h:"The work behind it",ex_sub:"All of it is my own work, built to the same standard whether or not it shipped — the ones marked live are open to anyone, the rest run privately or are still in progress.",
       t_ecocups:"Website build · Impact calculator · Green-claims research",
-      d_ecocups:"A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. The build and the diligence, together.",
+      d_ecocups:"A bilingual B2B website and impact calculator for a compostable-cup line — plus the green-claims research that found the product wasn't as green as presented, so it never shipped. My sustainability research spared my client a risky deal, and he thanked me for it. The build and the diligence, together.",
       t_greenclaims:"Web-tool build · Green-claims research · My own product",n_greenclaims:"Green Claims",
-      d_greenclaims:"My own service and tool. It flags risky “green” wording, rewrites it to comply with the EU rules landing September 2026, and turns real certificates into machine-readable JSON-LD — the markup Google and AI assistants read to verify a credential.",
+      d_greenclaims:"My own experimental project. It flags risky “green” wording, rewrites it to comply with the EU rules landing September 2026, and turns real certificates into machine-readable JSON-LD — the markup Google and AI assistants read to verify a credential.",
       try_gc:"Try it live →",
-      t_wise:"Data analysis · Sustainability research · Dashboard build",n_wise:"Beyond GDP — Nordic wellbeing & footprint",
+      t_wise:"Data analysis · Sustainability research · Dashboard build",n_wise:"Beyond GDP in Nordics",
       d_wise:"My own research as an interactive dashboard. Three “beyond-GDP” measures of wellbeing — HDI, the Social Progress Index and the SDG Index — set against the Ecological Footprint and Biocapacity accounts I compiled, for the five Nordic countries, 2000–2022.",
       try_wise:"Try it live →",
-t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
+t_raw:"Website build · Photo editing · Client project",n_raw:"Love Raw Cake",
       d_raw:"A bilingual one-page site for a Reykjavík raw-cake maker, hand-coded and mobile-first. No shopping cart by design — orders come through direct contact. My first client engagement run start to finish by me.",
-      t_auto:"Automation build · Voice AI · Data pipeline",n_auto:"Automation — farm bot & market monitoring",
+      t_auto:"Automation build · Voice AI · Data pipeline",t_gw:"Website build · Bilingual · NGO project",n_gw:"Green Wellbeing",d_gw:"The site for an Icelandic public-benefit organisation running Climate Cafés and environmental education. One page, English and Íslenska from the same build, on its own domain.",t_lpf:"Website build · Bilingual · Client project",n_lpf:"Launch Pad Finland",d_lpf:"A one-page site for a Finnish non-profit in the Kainuu region — Finnish and English from the same build. In review with the client, and kept out of search until they sign it off.",t_soon:"Next up",n_soon:"Coming soon",d_soon:"A new build is in progress. It will appear here once it is live.",soon_badge:"Coming soon",n_auto:"Automation",
       d_auto:"Two builds that take repetitive work off the table. A Telegram bot turns a task spoken in the field into a dated row in a Google Sheet, 24/7. A Python script searches suppliers in English and Icelandic and files what it finds.",
       see_how:"See how it works →",
       t_vakta:"Web-app build · Scheduling logic · Data handling",n_vakta:"Staff scheduler",
@@ -472,42 +700,42 @@ t_raw:"Website build · Client project",n_raw:"Love Raw Cake",
       view:"Try it live →",details:"Details on request →",try_vakta:"Try it live →",
 
 
-      contact_label:"Contact",contact_h:"Let's talk.",
+      contact_label:"Contact",contact_h:"Let's talk",
       contact_p:"Working on something at the meeting point of sustainability and efficiency? I'd love to hear about it.",
       q_label:"In their words",q_quote:"“Your client's words go here.”",q_name:"Client name",q_role:"Role, Company"
     },
     is:{
-      nav_work:"Verk",nav_about:"Um mig",nav_contact:"Samband",
+      nav_work:"Verk",nav_focus:"Svið",nav_about:"Um mig",nav_contact:"Samband",
       avail:"Laus í verkefni og opin fyrir réttu stöðunni",
       eyebrow:"Reykjavík · Ísland",
       h1:"Marina <em>Ermina</em>",
-      herosub:"Gagnagreinandi og verkefnastjóri. Tuttugu ár í viðskiptum — ég veit hvar tíminn og peningarnir leka. Nú smíða ég verkfærin sem stöðva það: vefsíður, sjálfvirkni og mælaborð, með rannsóknum sem sanna að þau virki.",
+      herosub:"Gagnagreinandi og verkefnastjóri með færni í gervigreind. Tuttugu ár í viðskiptum og sjálfbærni, svo ég veit hvar tíminn og peningarnir leka. Nú smíða ég lausnirnar sem bæta reksturinn: vefsíður, sjálfvirkni og mælaborð, með rannsóknum sem sanna að þær virki.",
       tagline:"Ég rannsaka, svo smíða ég — svo þú gerir <em>meira með minna</em>.",
       cta1:"Sjá verkin mín",cta2:"Hafa samband",
-      cv:"Skoða ferilskrána",langs_hero:"<span>Tungumál</span>Enska · Íslenska · Rússneska · Pólska",pk_res:"Rannsóknir",pv_res:"Rannsóknin að baki",pp_res:"Tvær meistaragráður með fyrstu einkunn — hagfræði og stjórnun, og umhverfis- og auðlindafræði — auk þjóðar-vistspora- og lífgetureikninganna, birtra og vitnað í.",pk_build:"Smíði",pv_build:"Ég smíða fyrir hagkvæmni",pp_build:"Vefsíður, áhrifareiknivélar, mælaborð og sjálfvirkni — allt frá raddbotta til tímasettra vefleitna — byggð með HTML, CSS, JavaScript, MySQL, Python, R og gervigreindarverkfærum.",pk_biz:"Viðskipti",pv_biz:"Viðskiptamiðuð og fagleg",pp_biz:"Tuttugu ár í verkefnastjórnun og viðskiptatengslum, í Bretlandi og á alþjóðavettvangi — alþjóðleg vörumerki, svo samræming ESB-styrktra sjálfbærniverkefna.",help_intro:"Ég smíða líka hratt — með gervigreindarstuddri þróun. Þannig getur einn einstaklingur skilað þessari breidd af verkefnum, og það er sama hugmyndin og allt annað hér: meira með minna.",cv_short:"Ferilskrá",live:"Í beinni",
+      cv:"Skoða ferilskrána",langs_hero:"<span>Tungumál</span>Enska · Íslenska · Rússneska · Pólska",pk_res:"Rannsóknir",pv_res:"Rannsóknin að baki",pp_res:"Tvær meistaragráður með fyrstu einkunn — hagfræði og stjórnun, og umhverfis- og auðlindafræði — auk þjóðar-vistspora- og lífgetureikninganna, birtra og vitnað í.",pk_build:"Smíði",pv_build:"Ég smíða fyrir hagkvæmni",pp_build:"Vefsíður, mælaborð, verkfæri og sjálfvirkni — áhrifareiknivél, tól sem skoðar grænar fullyrðingar, vaktaskipulag, raddbotti — byggt með HTML, CSS, JavaScript, MySQL, Python, R og gervigreindarverkfærum.",pk_biz:"Viðskipti",pv_biz:"Viðskiptamiðuð og fagleg",pp_biz:"Tuttugu ár í verkefnastjórnun og viðskiptatengslum, í Bretlandi og á alþjóðavettvangi — alþjóðleg vörumerki, svo samræming ESB-styrktra sjálfbærniverkefna.",help_intro:"Ég smíða hratt — með færni í gervigreind. Þannig getur einn einstaklingur skilað þessari breidd af verkefnum og boðið mikil verðmæti á besta verði, og það er sama hugmyndin og allt annað hér: meira með minna.",cv_short:"Ferilskrá",live:"Í beinni",
       stack_label:"Byggt með",
 
       built_label:"Það sem ég smíðaði",s1_b:"<a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-rawcake\">Love Raw Cake</a>",s2_b:"<a href=\"#p-automation\">FarmBot</a> · <a href=\"#p-automation\">Markaðsvöktun</a> · <a href=\"#p-staff\">Vaktatafla</a>",s3_b:"<a href=\"#p-greenclaims\">Green Claims</a> · <a href=\"#p-ecocups\">EcoCups</a> · <a href=\"#p-beyondgdp\">Handan VLF</a>",s4_b:"<a href=\"#p-beyondgdp\">Handan VLF</a> · <a href=\"#p-automation\">Markaðsvöktun</a>",
       so_res:"→ svo fullyrðingarnar mínar séu sannreynanlegar",
       so_build:"→ svo ég geti smíðað það, ekki bara ráðlagt um það",
       so_biz:"→ svo ég skilji hvað þú raunverulega þarft",
-      help_label:"Það sem ég get aðstoðað með",help_h:"Fjórar leiðir til að hjálpa.",
+      help_label:"Fjögur svið",help_h:"Hvernig ég get hjálpað",
       s1_t:"Vefsíður",s1_d:"Tvítyngdar, sérsmíðaðar vefsíður fyrir lítil fyrirtæki og verkefni — frá fyrsta samtali við viðskiptavin að lifandi síðu sem virkar á öllum skjám.",
       s2_t:"Sjálfvirkni",s2_d:"Verkfæri sem vinna endurtekna vinnu fyrir þig — tal eða gögn í töflureikni, vaktaskipulag og botta sem keyra sjálfir.",
       s3_t:"Sjálfbærnirannsóknir",s3_d:"Að kanna hvort „grænar“ fullyrðingar standist í raun gagnvart reglum og gögnum — og að mæla sjálfbærni með vísum sem halda.",
-      s4_t:"Gagnagreining",s4_d:"Að breyta óreiðukenndum gögnum í skýr svör — hreinsun, greining og túlkun með MySQL, Python og R.",
-      ex_label:"Dæmi",ex_h:"Verkin að baki.",
+      s4_t:"Gagnagreining",s4_d:"Að breyta óreiðukenndum gögnum í skýr svör — hreinsun, greining og túlkun með MySQL, Python og R, sett fram á mælaborðum sem lesa má í einu augnkasti.",
+      ex_label:"Dæmi um verkefni",ex_h:"Verkin að baki",ex_sub:"Allt er þetta mín eigin vinna, unnin eftir sama staðli hvort sem hún fór í loftið eða ekki — það sem merkt er «live» er opið öllum, annað er í einkanotkun eða enn í vinnslu.",
       t_ecocups:"Vefsíðugerð · Áhrifareiknivél · Rannsókn á grænum fullyrðingum",
-      d_ecocups:"Tvítyngd B2B-vefsíða og áhrifareiknivél fyrir jarðgeranlega bolla — auk rannsóknar á grænum fullyrðingum sem leiddi í ljós að varan var ekki eins græn og hún var kynnt, svo hún var aldrei birt. Smíðin og rýnin, saman.",
+      d_ecocups:"Tvítyngd B2B-vefsíða og áhrifareiknivél fyrir jarðgeranlega bolla — auk rannsóknar á grænum fullyrðingum sem leiddi í ljós að varan var ekki eins græn og hún var kynnt, svo hún var aldrei birt. Sjálfbærnirannsókn mín forðaði viðskiptavini mínum frá áhættusömum viðskiptum og hann þakkaði mér fyrir. Smíðin og rýnin, saman.",
       t_greenclaims:"Vefverkfæri · Rannsókn á grænum fullyrðingum · Eigin vara",n_greenclaims:"Green Claims",
-      d_greenclaims:"Mín eigin þjónusta og verkfæri. Það merkir áhættusöm „græn“ orð, endurskrifar þau eftir ESB-reglum sem taka gildi í september 2026, og breytir raunverulegum vottorðum í véllesanlegt JSON-LD — merkinguna sem Google og gervigreindaraðstoðarmenn lesa til að staðfesta vottun.",
+      d_greenclaims:"Mitt eigið tilraunaverkefni. Það merkir áhættusöm „græn“ orð, endurskrifar þau eftir ESB-reglum sem taka gildi í september 2026, og breytir raunverulegum vottorðum í véllesanlegt JSON-LD — merkinguna sem Google og gervigreindaraðstoðarmenn lesa til að staðfesta vottun.",
       try_gc:"Prófaðu í beinni →",
-      t_wise:"Gagnagreining · Sjálfbærnirannsókn · Mælaborðsgerð",n_wise:"Handan VLF — velsæld og vistspor Norðurlanda",
+      t_wise:"Gagnagreining · Sjálfbærnirannsókn · Mælaborðsgerð",n_wise:"Handan VLF á Norðurlöndum",
       d_wise:"Mín eigin rannsókn sem gagnvirkt mælaborð. Þrír „handan-VLF“ mælikvarðar á velsæld — HDI, Social Progress Index og SDG-vísitalan — bornir saman við vistspors- og lífgetureikningana sem ég tók saman, fyrir Norðurlöndin fimm, 2000–2022.",
       try_wise:"Prófaðu í beinni →",
-t_raw:"Vefsíðugerð · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
+t_raw:"Vefsíðugerð · Myndvinnsla · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
       d_raw:"Tvítyngd einnar-síðu vefsíða fyrir hrákökugerð í Reykjavík, handkóðuð og hönnuð fyrir síma fyrst. Engin innkaupakarfa — pantanir fara fram í beinu sambandi. Fyrsta verkefnið sem ég stýrði alfarið sjálf.",
-      t_auto:"Sjálfvirknismíði · Raddgervigreind · Gagnaferli",n_auto:"Sjálfvirkni — bóndabotti og markaðsvöktun",
+      t_auto:"Sjálfvirknismíði · Raddgervigreind · Gagnaferli",t_gw:"Vefsíðugerð · Tvítyngt · Félagasamtök",n_gw:"Green Wellbeing",d_gw:"Vefur íslensks almannaheillafélags sem heldur loftslagskaffi og umhverfismenntun. Ein síða, enska og íslenska úr sömu smíði, á eigin léni.",t_lpf:"Vefsíðugerð · Tvítyngt · Verkefni fyrir viðskiptavin",n_lpf:"Launch Pad Finland",d_lpf:"Ein síða fyrir finnsk félagasamtök í Kainuu — finnska og enska úr sömu smíði. Í yfirlestri hjá viðskiptavininum og haldið utan leitarvéla þar til hún er samþykkt.",t_soon:"Næst á dagskrá",n_soon:"Væntanlegt",d_soon:"Nýtt verkefni er í vinnslu. Það birtist hér þegar það fer í loftið.",soon_badge:"Væntanlegt",n_auto:"Sjálfvirkni",
       d_auto:"Tvö verkefni sem taka endurtekna vinnu af borðinu. Telegram-botti breytir verki sem sagt er upphátt úti á túni í dagsetta línu í Google Sheet, allan sólarhringinn. Python-skrifta leitar að birgjum á ensku og íslensku og skráir það sem hún finnur.",
       see_how:"Sjá hvernig það virkar →",
       t_vakta:"Vefsmíði · Vaktalógík · Gagnavinnsla",n_vakta:"Vaktatafla",
@@ -515,7 +743,7 @@ t_raw:"Vefsíðugerð · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
       view:"Prófaðu í beinni →",details:"Nánar sé óskað →",try_vakta:"Prófaðu í beinni →",
 
 
-      contact_label:"Samband",contact_h:"Höfum samband.",
+      contact_label:"Samband",contact_h:"Höfum samband",
       contact_p:"Ertu með eitthvað á mótum sjálfbærni og hagkvæmni? Ég vil endilega heyra af því.",
       q_label:"Þeirra orð",q_quote:"„Orð viðskiptavinarins þíns koma hér.“",q_name:"Nafn viðskiptavinar",q_role:"Hlutverk, fyrirtæki"
     }
@@ -530,6 +758,22 @@ t_raw:"Vefsíðugerð · Verkefni fyrir viðskiptavin",n_raw:"Love Raw Cake",
   document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
   let saved='en';try{saved=localStorage.getItem('lang')||'en';}catch(e){}
   setLang(saved);
+
+  // ── pillar labels: click to pin one, click again to release ──
+  (function(){
+    const btns=[...document.querySelectorAll('.trust-k')];
+    btns.forEach(b=>b.addEventListener('click',()=>{
+      const on=b.getAttribute('aria-pressed')==='true';
+      btns.forEach(o=>{
+        o.setAttribute('aria-pressed','false');
+        o.closest('.trust-item').classList.remove('is-active');
+      });
+      if(!on){
+        b.setAttribute('aria-pressed','true');
+        b.closest('.trust-item').classList.add('is-active');
+      }
+    }));
+  })();
 
   // ── nav: transparent over hero, solid after ──
   (function(){

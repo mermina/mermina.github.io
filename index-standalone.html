@@ -287,6 +287,18 @@
   .svc-card{transition:background-color .3s ease,border-color .3s ease}
   .svc-card:hover{background-color:#fbfdfb;border-color:rgba(47,125,91,.34)}
   .ex-card{transition:transform .2s,box-shadow .2s,border-color .3s ease}
+
+  /* Whole card is one click target: the project link is stretched over the
+     card with a pseudo-element, so a click anywhere on it opens the project.
+     The visible link, its hover colour and keyboard focus are unchanged, and
+     the "Coming soon" card has no link so it stays inert. */
+  .ex-card:has(.ex-link){cursor:pointer}
+  .ex-links .ex-link{position:static}
+  .ex-links .ex-link::after{content:"";position:absolute;inset:0;z-index:3}
+  .ex-card:has(.ex-link):hover .ex-link{color:var(--forest)}
+  .ex-card .frame-shot img{transition:transform .35s ease}
+  .ex-card:has(.ex-link):hover .frame-shot img{transform:scale(1.02)}
+  .ex-links .ex-link:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
   .ex-card:hover{border-color:rgba(47,125,91,.30)}
 
   /* ── service symbols: line icons instead of emoji ─────────────
